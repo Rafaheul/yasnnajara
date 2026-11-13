@@ -1,0 +1,14 @@
+# LISTA BRANCA: só sobe o que o site usa
+*
+!.gitignore
+!.nojekyll
+!index.html
+!consultas.html
+!assets/
+assets/*
+!assets/*.css
+!assets/*.js
+!assets/*.webp
+!assets/*.jpg
+!assets/logo.png
+!assets/no.mp4

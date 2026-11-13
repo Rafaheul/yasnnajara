@@ -1,0 +1,96 @@
+/* Acréscimos do site central sobre o style.css herdado do hub antigo. */
+.topo { text-align: center; padding: 40px 16px 8px; }
+.topo img { width: 140px; height: 140px; object-fit: contain; border-radius: 18px; padding: 6px;
+  background: var(--papel); box-shadow: var(--sombra); }
+.topo h1 { font-family: "Cormorant Garamond", serif; font-weight: 600; font-size: 2.1rem;
+  margin: 14px 0 4px; color: var(--tinta); }
+.topo p { margin: 0 auto; max-width: 30em; color: var(--tinta-suave); }
+
+.portas { display: grid; gap: 14px; margin: 28px 0 8px; }
+.card.em-breve { opacity: .55; cursor: default; pointer-events: none; }
+.card.em-breve .seta { font-style: italic; }
+
+.passos { padding-left: 1.2em; }
+.passos li { margin: 0 0 10px; }
+.voltar { display: inline-block; margin: 24px 0 0; color: var(--bronze); text-decoration: none; }
+.aviso { font-size: .9rem; color: var(--tinta-suave); border-left: 3px solid var(--dourado-claro);
+  padding: 4px 0 4px 12px; }
+.topo__papel { font-size: .8rem; letter-spacing: .14em; text-transform: uppercase; color: var(--bronze) !important; margin-bottom: 10px !important; }
+.ficha { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 24px 0 0; text-align: center; }
+.ficha div { background: var(--papel); border: 1px solid var(--borda); border-radius: var(--raio); padding: 12px 6px; }
+.ficha dt { font-family: "Inter", sans-serif; font-size: 1.25rem; font-weight: 600; color: var(--tinta); }
+.ficha dd { margin: 2px 0 0; font-size: .8rem; color: var(--tinta-suave); }
+
+/* ===== topo fino ===== */
+.marca-topo { display: flex; align-items: center; gap: 10px; justify-content: center; padding: 18px 16px 0; }
+.marca-topo img { width: 44px; height: 44px; object-fit: contain; }
+.marca-topo b { display: block; font: 600 1.15rem/1.1 "Cormorant Garamond", serif; color: var(--tinta); }
+.marca-topo small { display: block; font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--bronze); }
+
+/* ===== capa com o fio ===== */
+.capa { text-align: center; padding: 0 16px 24px; max-width: 760px; margin: 0 auto; }
+.capa__fio { width: 100%; max-width: 640px; aspect-ratio: 3 / 2; display: block; margin: -10px auto -60px;
+  mix-blend-mode: multiply; pointer-events: none;
+  -webkit-mask-image: radial-gradient(ellipse 50% 46% at 50% 50%, #000 70%, transparent 100%);
+          mask-image: radial-gradient(ellipse 50% 46% at 50% 50%, #000 70%, transparent 100%); }
+.capa__titulo { font: 600 clamp(2.1rem, 8vw, 3.4rem)/1.08 "Cormorant Garamond", serif; color: var(--tinta); margin: 0 0 30px; }
+.capa__titulo .cl { display: block; }
+.capa__texto { max-width: 30em; margin: 0 auto 18px; color: var(--tinta-suave); }
+.capa__descer { color: var(--bronze); text-decoration: none; font-weight: 500; }
+
+/* ===== quem é ===== */
+.quem { display: grid; grid-template-columns: 1fr; gap: 18px; align-items: center; margin: 8px 0 24px; }
+.quem img { width: 100%; max-width: 320px; height: auto; aspect-ratio: 1; object-fit: cover; object-position: 50% 30%; border-radius: 50% 50% 18px 18px; margin: 0 auto; box-shadow: var(--sombra); }
+@media (min-width: 640px) { .quem { grid-template-columns: 260px 1fr; } }
+
+/* ===== fio que se desenha entre seções ===== */
+.fio-divisor { display: block; width: 100%; max-width: 400px; margin: 34px auto 10px; overflow: visible; }
+.fio-divisor path { fill: none; stroke: var(--bronze); stroke-width: 1.6; stroke-linecap: round;
+  stroke-dasharray: 520; stroke-dashoffset: 0; }
+
+/* ===== animações (só liga com JS e sem "reduzir movimento") ===== */
+.anima .cl { opacity: 0; transform: translateY(18px); transition: opacity .9s cubic-bezier(.22,1,.36,1), transform .9s cubic-bezier(.22,1,.36,1); }
+.anima .capa.mostra .cl { opacity: 1; transform: none; }
+.anima .capa.mostra .cl:nth-child(2) { transition-delay: .09s; }
+.anima .capa.mostra .capa__texto { transition-delay: .25s; }
+.anima .capa.mostra .capa__descer { transition-delay: .4s; }
+.anima .entra { opacity: 0; transform: translateY(28px) scale(.985); transition: opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1); }
+.anima .entra.visto { opacity: 1; transform: none; }
+.anima .fio-divisor path { stroke-dashoffset: 520; transition: stroke-dashoffset 1.8s cubic-bezier(.65,0,.35,1); }
+.anima .fio-divisor.visto path { stroke-dashoffset: 0; }
+.card { transition: transform .35s cubic-bezier(.22,1,.36,1), box-shadow .35s; }
+@media (hover: hover) { .card[href]:hover { transform: translateY(-3px); } }
+.anima .card.em-breve.visto, .card.em-breve { opacity: .55; }
+
+/* ===== imagens novas ===== */
+body { background: linear-gradient(rgba(247,240,228,.62), rgba(247,240,228,.62)), url("papel.webp") repeat var(--areia); background-size: auto, 512px; }
+.card__foto { display: block; width: calc(100% + 44px); max-width: none; height: auto; aspect-ratio: 3 / 2;
+  object-fit: cover; margin: -20px -22px 16px;
+  border-radius: var(--raio) var(--raio) 0 0; transition: transform .8s cubic-bezier(.22,1,.36,1); }
+.card { overflow: hidden; }
+@media (hover: hover) { .card[href]:hover .card__foto { transform: scale(1.03); } }
+.retrato { margin: 24px auto 0; max-width: 340px; }
+.retrato img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 20%;
+  border-radius: 50% 50% 18px 18px / 36% 36% 18px 18px; box-shadow: var(--sombra); }
+
+/* ===== efeito na escrita ===== */
+.capa__titulo .linha { display: block; }
+.capa__titulo em { font-style: italic; color: var(--bronze); }
+.sublinha { position: relative; display: inline-block; white-space: nowrap; }
+.sublinha svg { position: absolute; left: -3%; bottom: -.42em; width: 112%; height: .62em; overflow: visible; pointer-events: none; }
+.sublinha path { fill: none; stroke: var(--dourado); stroke-width: 2.6; stroke-linecap: round; vector-effect: non-scaling-stroke;
+  stroke-dasharray: 300; stroke-dashoffset: 0; }
+.marca-texto { background: linear-gradient(transparent 58%, rgba(224,200,152,.75) 58%, rgba(224,200,152,.75) 92%, transparent 92%) no-repeat 0 0 / 100% 100%;
+  color: inherit; padding: 0 .1em; }
+
+/* palavras sobem de dentro de uma fresta, saindo do desfoque */
+.anima .escreve .p { display: inline-block; overflow: hidden; vertical-align: top; padding: 0 .04em .16em; margin: 0 -.04em -.16em; }
+.anima .escreve .pi { display: inline-block; transform: translateY(110%) rotate(4deg); opacity: 0; filter: blur(8px);
+  transform-origin: 0 100%;
+  transition: transform 1s cubic-bezier(.22,1,.36,1), opacity .7s ease, filter 1s cubic-bezier(.22,1,.36,1);
+  transition-delay: calc(var(--i) * 75ms + var(--d, 0ms)); }
+.anima .escreve.visto .pi { transform: none; opacity: 1; filter: none; }
+.anima .sublinha path { stroke-dashoffset: 300; transition: stroke-dashoffset 1.4s cubic-bezier(.65,0,.35,1) 1.35s; }
+.anima .escreve.visto .sublinha path { stroke-dashoffset: 0; }
+.anima .marca-texto { background-size: 0% 100%; transition: background-size 1.2s cubic-bezier(.65,0,.35,1) .5s; }
+.anima .visto .marca-texto, .anima .marca-texto.visto { background-size: 100% 100%; }

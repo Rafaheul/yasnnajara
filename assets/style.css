@@ -1,0 +1,1056 @@
+/* ==========================================================================
+   Yasnnajára Alves — sistema visual
+   Paleta: champagne, marrom quente, dourado e bronze.
+   Nada de neon místico; a referência é papel bom, não portal esotérico.
+   ========================================================================== */
+
+:root {
+  /* Paleta tirada da arte "Jornada Mulheres Despertas": champagne, dourado,
+     bronze e marrom quente. Sem roxo, sem neon — luz de fim de tarde em papel. */
+  --areia:        #F7F0E4;
+  --areia-escura: #EFE4D1;
+  --papel:        #FFFBF4;
+  --tinta:        #3B2E20;
+  --tinta-suave:  #6B5942;
+  --dourado:      #B8945A;
+  --dourado-claro:#E0C898;
+  --bronze:       #8C6B33;
+  --bronze-claro: #A98244;
+  --borda:        #E6D8BF;
+  --brilho:       radial-gradient(ellipse 120% 80% at 50% -10%, #FFF6E4 0%, rgba(255,246,228,0) 60%);
+  --sombra:       0 1px 2px rgba(59,46,32,.04), 0 8px 24px rgba(59,46,32,.07);
+  --raio:         14px;
+  --largura:      680px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--areia) var(--brilho) no-repeat;
+  background-attachment: fixed;
+  color: var(--tinta);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, .serif {
+  font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin: 0 0 .5em;
+}
+
+h1 { font-size: clamp(2rem, 6vw, 3rem); }
+h2 { font-size: clamp(1.5rem, 4.5vw, 2.1rem); }
+h3 { font-size: 1.25rem; }
+
+p { margin: 0 0 1.1em; }
+a { color: var(--bronze); }
+
+.wrap {
+  width: 100%;
+  max-width: var(--largura);
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.wrap--larga { max-width: 860px; }
+
+/* ---------- topo ---------- */
+
+.topo {
+  text-align: center;
+  padding: 48px 0 28px;
+}
+
+.topo__marca {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.9rem, 5.5vw, 2.6rem);
+  letter-spacing: .02em;
+  margin: 0;
+}
+
+.topo__papel {
+  display: block;
+  margin-top: 6px;
+  font-family: 'Inter', sans-serif;
+  font-size: .78rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+}
+
+.topo__bio {
+  max-width: 460px;
+  margin: 18px auto 0;
+  color: var(--tinta-suave);
+  font-size: .98rem;
+}
+
+/* ---------- cartões do hub ---------- */
+
+.lista { display: grid; gap: 14px; margin: 28px 0 40px; }
+
+.card {
+  display: block;
+  background: var(--papel);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  padding: 20px 22px;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: var(--sombra);
+  transition: transform .18s ease, border-color .18s ease;
+}
+
+.card:hover, .card:focus-visible {
+  transform: translateY(-2px);
+  border-color: var(--dourado-claro);
+}
+
+.card--destaque {
+  background: linear-gradient(180deg, #FFFDF8 0%, #FBF4E6 100%);
+  border-color: var(--dourado-claro);
+}
+
+.card__eyebrow {
+  font-size: .7rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--dourado);
+  font-weight: 600;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.card__titulo { font-size: 1.32rem; margin: 0 0 4px; }
+
+.card__texto {
+  margin: 0;
+  color: var(--tinta-suave);
+  font-size: .94rem;
+  line-height: 1.5;
+}
+
+.card__rodape {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 4px 12px;
+  margin-top: 12px;
+}
+
+.preco { font-weight: 600; font-size: 1rem; white-space: nowrap; }
+.preco small { font-weight: 400; color: var(--tinta-suave); }
+
+.seta { color: var(--dourado); font-size: .9rem; white-space: nowrap; }
+
+/* ---------- botões ---------- */
+
+.btn {
+  display: inline-block;
+  background: var(--bronze);
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 15px 30px;
+  font: inherit;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  cursor: pointer;
+  text-align: center;
+  transition: background .18s ease, opacity .18s ease;
+}
+
+.btn:hover:not(:disabled) { background: var(--bronze-claro); }
+.btn:disabled { opacity: .4; cursor: not-allowed; }
+.btn--bloco { display: block; width: 100%; }
+.btn--fantasma {
+  background: transparent;
+  color: var(--bronze);
+  border: 1px solid var(--borda);
+}
+.btn--fantasma:hover:not(:disabled) { background: var(--areia-escura); }
+
+/* ---------- blocos de texto ---------- */
+
+.secao { padding: 34px 0; }
+.secao--linha { border-top: 1px solid var(--borda); }
+
+.nota {
+  background: var(--areia-escura);
+  border-radius: var(--raio);
+  padding: 16px 18px;
+  font-size: .87rem;
+  line-height: 1.55;
+  color: var(--tinta-suave);
+}
+
+.nota strong { color: var(--tinta); }
+
+.rodape {
+  text-align: center;
+  padding: 36px 16px 48px;
+  font-size: .8rem;
+  color: var(--tinta-suave);
+}
+
+.rodape a { color: var(--tinta-suave); }
+
+/* ---------- quiz ---------- */
+
+.progresso {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--areia);
+  padding: 10px 0 12px;
+  border-bottom: 1px solid var(--borda);
+}
+
+.progresso__barra {
+  height: 4px;
+  background: var(--areia-escura);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progresso__fill {
+  height: 100%;
+  width: 0;
+  background: var(--dourado);
+  border-radius: 999px;
+  transition: width .25s ease;
+}
+
+.progresso__texto {
+  font-size: .75rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+  margin-top: 8px;
+  text-align: center;
+}
+
+.progresso__barra { position: relative; }
+
+/* filete na metade do caminho — é onde o mapa muda de fase */
+.progresso__marca {
+  position: absolute;
+  left: 50%;
+  top: -3px;
+  width: 1px;
+  height: 10px;
+  background: var(--dourado-claro);
+}
+
+.progresso__linha {
+  display: flex;
+  justify-content: space-between;
+  font-size: .72rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+  margin-top: 8px;
+}
+
+#progresso-falta { color: var(--bronze); font-weight: 600; }
+
+/* uma pergunta por tela */
+
+.pergunta {
+  min-height: calc(100vh - 120px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 24px;
+  padding-bottom: 32px;
+}
+
+.pergunta__texto {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.6rem, 6vw, 2.2rem);
+  line-height: 1.25;
+  margin: 10px 0 26px;
+}
+
+.opcoes { display: grid; gap: 8px; }
+
+.opcao {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: var(--papel);
+  border: 1px solid var(--borda);
+  border-radius: 12px;
+  padding: 16px 18px;
+  font: inherit;
+  font-size: 1rem;
+  color: var(--tinta);
+  cursor: pointer;
+  box-shadow: var(--sombra);
+  transition: background .12s ease, border-color .12s ease, color .12s ease, transform .12s ease;
+}
+
+.opcao:hover { border-color: var(--dourado); transform: translateX(2px); }
+
+.opcao--marcada {
+  background: var(--bronze);
+  border-color: var(--bronze);
+  color: #fff;
+}
+
+.btn-voltar {
+  background: none;
+  border: none;
+  color: var(--tinta-suave);
+  font: inherit;
+  font-size: .85rem;
+  cursor: pointer;
+  padding: 18px 0 0;
+  align-self: flex-start;
+}
+
+.btn-voltar:hover { color: var(--bronze); }
+
+.item__numero {
+  font-size: .72rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--dourado);
+  font-weight: 600;
+}
+
+/* ---------- resultado ---------- */
+
+.resultado__hero {
+  text-align: center;
+  padding: 36px 0 12px;
+}
+
+.trio { display: grid; gap: 14px; margin: 22px 0; }
+
+.trio__card {
+  background: var(--papel);
+  border: 1px solid var(--borda);
+  border-left: 4px solid var(--dourado);
+  border-radius: var(--raio);
+  padding: 18px 20px;
+}
+
+.trio__card--retraida { border-left-color: var(--bronze); }
+
+.trio__papel {
+  font-size: .7rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+  font-weight: 600;
+}
+
+.trio__nome {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.9rem;
+  margin: 2px 0 6px;
+}
+
+.trio__estado {
+  display: inline-block;
+  font-size: .72rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  background: var(--areia-escura);
+  border-radius: 999px;
+  padding: 3px 10px;
+  margin-bottom: 10px;
+}
+
+.barras { margin: 24px 0; }
+
+.barra { margin-bottom: 12px; }
+
+.barra__topo {
+  display: flex;
+  justify-content: space-between;
+  font-size: .85rem;
+  margin-bottom: 4px;
+}
+
+.barra__trilho {
+  height: 8px;
+  background: var(--areia-escura);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.barra__fill {
+  height: 100%;
+  background: var(--dourado);
+  border-radius: 999px;
+}
+
+.barra__fill--baixa { background: var(--bronze); }
+
+.oculto { display: none !important; }
+
+
+/* ---------- título do arquétipo (o "sol e ascendente") ---------- */
+
+.titulo-arquetipo {
+  text-align: center;
+  padding: 44px 0 10px;
+}
+
+.titulo-arquetipo__papel {
+  display: block;
+  font-size: .7rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+}
+
+.titulo-arquetipo__nome {
+  font-size: clamp(2.2rem, 9vw, 3.4rem);
+  margin: 10px 0 8px;
+  color: var(--bronze);
+}
+
+.titulo-arquetipo__linha {
+  font-size: .9rem;
+  color: var(--tinta-suave);
+  margin: 0;
+}
+
+/* ---------- frases de reconhecimento ---------- */
+
+.frases {
+  list-style: none;
+  padding: 0;
+  margin: 18px 0 8px;
+  display: grid;
+  gap: 10px;
+}
+
+.frases li {
+  background: var(--papel);
+  border: 1px solid var(--borda);
+  border-radius: 12px;
+  padding: 14px 16px 14px 42px;
+  position: relative;
+  font-size: .97rem;
+  line-height: 1.5;
+  box-shadow: var(--sombra);
+}
+
+.frases li::before {
+  content: '·';
+  position: absolute;
+  left: 18px;
+  top: 6px;
+  color: var(--dourado);
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+.legenda {
+  font-size: .8rem;
+  color: var(--tinta-suave);
+  line-height: 1.5;
+}
+
+.acoes { display: grid; gap: 10px; }
+
+.campo-copiar {
+  width: 100%;
+  margin-top: 4px;
+  padding: 12px 14px;
+  border: 1px solid var(--borda);
+  border-radius: 12px;
+  background: var(--papel);
+  font: inherit;
+  font-size: .9rem;
+  color: var(--tinta);
+  resize: vertical;
+}
+
+
+/* ---------- retratos das deusas ---------- */
+
+.retratos {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+.retrato { margin: 0; text-align: center; }
+
+.retrato img {
+  display: block;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--papel);
+  box-shadow: 0 0 0 1px var(--dourado-claro), 0 10px 26px rgba(59,46,32,.16);
+}
+
+.retrato figcaption {
+  font-size: .68rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+  margin-top: 8px;
+}
+
+.retrato--principal img { width: 124px; height: 124px; }
+.retrato--apoio img { width: 76px; height: 76px; opacity: .92; }
+.retrato--apoio figcaption { font-size: .62rem; }
+
+@media (min-width: 560px) {
+  .retrato--principal img { width: 150px; height: 150px; }
+  .retrato--apoio img { width: 92px; height: 92px; }
+}
+
+/* ---------- hero (estrutura do template hero05, paleta da arte) ---------- */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 72px 0 56px;
+  border-bottom: 1px solid var(--borda);
+}
+
+.hero__luz {
+  position: absolute;
+  inset: -40% -20% auto -20%;
+  height: 120%;
+  background:
+    radial-gradient(ellipse 50% 40% at 50% 30%, rgba(255,247,231,.95) 0%, rgba(255,247,231,0) 70%),
+    radial-gradient(ellipse 40% 30% at 20% 10%, rgba(224,200,152,.45) 0%, rgba(224,200,152,0) 70%);
+  pointer-events: none;
+}
+
+/* filete duplo dourado, citando a moldura grega dos pôsteres */
+.hero__moldura {
+  position: absolute;
+  inset: 14px;
+  border: 1px solid rgba(184,148,90,.35);
+  border-radius: 6px;
+  pointer-events: none;
+}
+
+.hero__moldura::after {
+  content: '';
+  position: absolute;
+  inset: 5px;
+  border: 1px solid rgba(184,148,90,.18);
+  border-radius: 3px;
+}
+
+.hero__shell { position: relative; text-align: center; }
+
+.hero__eyebrow {
+  display: block;
+  font-size: .72rem;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--bronze);
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+
+.hero__titulo {
+  font-size: clamp(2.1rem, 8vw, 3.4rem);
+  line-height: 1.1;
+  margin: 0 0 18px;
+}
+
+.hero__texto {
+  max-width: 480px;
+  margin: 0 auto 26px;
+  color: var(--tinta-suave);
+  font-size: 1rem;
+}
+
+.hero__cta { display: inline-block; }
+
+.hero__numeros {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  margin: 34px 0 0;
+  padding-top: 22px;
+  border-top: 1px solid var(--borda);
+}
+
+.hero__numeros div { text-align: center; }
+
+.hero__numeros dt {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.9rem;
+  color: var(--bronze);
+  line-height: 1;
+}
+
+.hero__numeros dd {
+  margin: 6px 0 0;
+  font-size: .68rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+}
+
+/* ---------- galeria das sete ---------- */
+
+.galeria {
+  list-style: none;
+  padding: 0;
+  margin: 22px 0 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px 8px;
+  text-align: center;
+}
+
+.galeria img {
+  width: 100%;
+  max-width: 86px;
+  height: auto;          /* sem isto o atributo height="512" do HTML vence */
+  aspect-ratio: 1;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--papel);
+  box-shadow: 0 0 0 1px var(--dourado-claro), 0 6px 16px rgba(59,46,32,.12);
+}
+
+.galeria span {
+  display: block;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1rem;
+  margin-top: 8px;
+}
+
+.galeria small {
+  display: block;
+  font-size: .64rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+}
+
+/* ---------- citação ---------- */
+
+.citacao {
+  margin: 24px 0;
+  padding: 18px 0 18px 20px;
+  border-left: 3px solid var(--dourado);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.4rem;
+  line-height: 1.3;
+  color: var(--bronze);
+}
+
+/* ---------- aparição ao rolar ---------- */
+
+[data-revela] {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+
+[data-revela].revelado { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  [data-revela] { opacity: 1; transform: none; transition: none; }
+}
+
+.marca {
+  text-align: center;
+  padding: 20px 16px 0;
+}
+
+.marca__nome {
+  display: block;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.35rem;
+  letter-spacing: .04em;
+}
+
+.marca__papel {
+  display: block;
+  margin-top: 2px;
+  font-size: .62rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+}
+
+/* ---------- etapas numeradas ---------- */
+
+.etapas {
+  list-style: none;
+  counter-reset: etapa;
+  padding: 0;
+  margin: 22px 0 0;
+  display: grid;
+  gap: 16px;
+}
+
+.etapas li {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  background: var(--papel);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  padding: 18px 20px;
+  box-shadow: var(--sombra);
+}
+
+.etapas__n {
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--dourado-claro);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.3rem;
+  color: var(--bronze);
+}
+
+.etapas h3 { margin: 0 0 4px; font-size: 1.1rem; }
+.etapas p { margin: 0; font-size: .92rem; color: var(--tinta-suave); }
+
+/* ---------- listas com marcador dourado ---------- */
+
+.marcadores { list-style: none; padding: 0; margin: 18px 0; display: grid; gap: 10px; }
+
+.marcadores li {
+  position: relative;
+  padding-left: 22px;
+  font-size: .96rem;
+}
+
+.marcadores li::before {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: .62em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--dourado);
+}
+
+/* ---------- FAQ ---------- */
+
+.faq {
+  border-bottom: 1px solid var(--borda);
+  padding: 4px 0;
+}
+
+.faq summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 14px 28px 14px 0;
+  font-weight: 600;
+  font-size: .98rem;
+  position: relative;
+}
+
+.faq summary::-webkit-details-marker { display: none; }
+
+.faq summary::after {
+  content: '+';
+  position: absolute;
+  right: 4px;
+  top: 12px;
+  color: var(--dourado);
+  font-size: 1.3rem;
+  line-height: 1;
+}
+
+.faq[open] summary::after { content: '–'; }
+
+.faq p {
+  margin: 0 0 16px;
+  font-size: .93rem;
+  color: var(--tinta-suave);
+}
+
+a.marca__nome { text-decoration: none; color: inherit; }
+
+.capa-deusa {
+  width: 108px;
+  height: 108px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--papel);
+  box-shadow: 0 0 0 1px var(--dourado-claro), 0 8px 20px rgba(59,46,32,.14);
+  margin-bottom: 14px;
+}
+
+/* ---------- leitura de sombra ---------- */
+
+.sombra-topo {
+  text-align: center;
+  padding: 40px 0 14px;
+}
+
+.sombra-topo__papel {
+  display: block;
+  font-size: .7rem;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+  margin-top: 16px;
+}
+
+.sombra-topo__nome {
+  font-size: clamp(2.4rem, 10vw, 3.6rem);
+  margin: 6px 0 4px;
+  color: var(--bronze);
+}
+
+.sombra-topo__modo {
+  margin: 0;
+  font-size: .9rem;
+  color: var(--tinta-suave);
+  letter-spacing: .04em;
+}
+
+.retrato--sombra img {
+  width: 150px;
+  height: 150px;
+  filter: saturate(.92) contrast(1.02);
+}
+
+.retrato--sombra figcaption { display: none; }
+
+.retrato--regente img { width: 92px; height: 92px; }
+.retrato--regente figcaption { display: none; }
+
+.nota--protege {
+  border-left: 3px solid var(--dourado);
+  background: linear-gradient(90deg, rgba(224,200,152,.22), rgba(239,228,209,.5));
+}
+
+.regente {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  background: var(--papel);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  padding: 18px 20px;
+  box-shadow: var(--sombra);
+  margin-bottom: 8px;
+}
+
+.regente p { margin: 0 0 8px; font-size: .96rem; }
+.regente p:last-child { margin: 0; }
+.regente .retrato { margin: 0; flex-shrink: 0; }
+
+.trio__capacidade {
+  font-size: .72rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+  margin: 0 0 10px;
+}
+
+.cartao-aviso { display: block; margin-top: 8px; color: var(--bronze); font-size: .9rem; }
+
+/* barras de sombra */
+
+.sombra-lista { margin: 20px 0 10px; }
+
+.sombra-linha { margin-bottom: 14px; }
+
+.sombra-linha__topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 5px;
+}
+
+.sombra-linha__nome {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.15rem;
+}
+
+.sombra-linha__valor { font-size: .82rem; color: var(--tinta-suave); }
+.sombra-linha__valor em { font-style: normal; letter-spacing: .04em; }
+
+.barra__fill--forte { background: #8C3B22; }
+.barra__fill--media { background: var(--bronze); }
+.barra__fill--leve  { background: var(--dourado); }
+.barra__fill--luz   { background: var(--dourado-claro); }
+
+/* ---------- cards das sete (galeria em formato retrato) ---------- */
+
+.cards-deusas {
+  list-style: none;
+  padding: 0;
+  margin: 22px 0 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.cards-deusas li {
+  position: relative;
+  border-radius: var(--raio);
+  overflow: hidden;
+  border: 1px solid var(--borda);
+  box-shadow: var(--sombra);
+  background: var(--papel);
+}
+
+.cards-deusas figure { margin: 0; }   /* figure vem com 40px de margem do navegador */
+
+.cards-deusas img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+}
+
+/* o topo dos pôsteres tem resto de letra: este véu cobre e dá acabamento */
+.cards-deusas li::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 26%;
+  background: linear-gradient(180deg, rgba(247,240,228,.96), rgba(247,240,228,.55) 55%, rgba(247,240,228,0));
+  pointer-events: none;
+}
+
+.cards-deusas figcaption {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 26px 14px 12px;
+  background: linear-gradient(180deg, rgba(40,30,18,0), rgba(40,30,18,.82));
+  color: #FFF8EC;
+}
+
+.cards-deusas figcaption b {
+  display: block;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 600;
+  font-size: 1.35rem;
+  line-height: 1.1;
+}
+
+.cards-deusas figcaption span {
+  display: block;
+  font-size: .68rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  opacity: .85;
+  margin-top: 3px;
+}
+
+@media (min-width: 620px) {
+  .cards-deusas { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* ---------- controle de som ---------- */
+
+.som {
+  position: fixed;
+  right: 14px;
+  bottom: 14px;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,251,244,.92);
+  backdrop-filter: blur(6px);
+  border: 1px solid var(--borda);
+  border-radius: 999px;
+  padding: 6px 10px;
+  box-shadow: var(--sombra);
+}
+
+.som__botao {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  font: inherit;
+  font-size: .78rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+  cursor: pointer;
+  padding: 2px 4px;
+}
+
+.som--tocando .som__botao { color: var(--bronze); }
+.som__icone { font-size: 1rem; }
+.som--tocando .som__icone { animation: pulso 2.4s ease-in-out infinite; }
+
+@keyframes pulso {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .45; }
+}
+
+.som__volume input {
+  width: 74px;
+  accent-color: var(--bronze);
+}
+
+.sr {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .som--tocando .som__icone { animation: none; }
+}
+
+/* ---------- hero com a imagem do Olimpo ----------
+   Enquanto assets/olimpo.webp não existir, o hero fica só com a luz e a moldura —
+   nada quebra, não aparece ícone de imagem faltando. */
+
+.hero--olimpo .hero__luz {
+  background-image:
+    radial-gradient(ellipse 60% 50% at 50% 40%, rgba(255,247,231,.72) 0%, rgba(255,247,231,.05) 70%),
+    image-set(url('olimpo.webp') type('image/webp'));
+  background-size: cover;
+  background-position: center 30%;
+  background-repeat: no-repeat;
+  inset: 0;
+  height: 100%;
+  opacity: .9;
+}
+
+/* véu para o texto continuar legível sobre a arte */
+.hero--olimpo .hero__shell::before {
+  content: '';
+  position: absolute;
+  inset: -24px -16px;
+  background: radial-gradient(ellipse 80% 70% at 50% 45%, rgba(247,240,228,.88) 0%, rgba(247,240,228,.55) 60%, rgba(247,240,228,0) 100%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.hero--olimpo .hero__shell { z-index: 1; }
