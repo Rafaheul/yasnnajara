@@ -90,7 +90,8 @@ body { background: linear-gradient(rgba(247,240,228,.62), rgba(247,240,228,.62))
   transition: transform 1s cubic-bezier(.22,1,.36,1), opacity .7s ease, filter 1s cubic-bezier(.22,1,.36,1);
   transition-delay: calc(var(--i) * 75ms + var(--d, 0ms)); }
 .anima .escreve.visto .pi { transform: none; opacity: 1; filter: none; }
-.anima .sublinha path { stroke-dashoffset: 300; transition: stroke-dashoffset 1.4s cubic-bezier(.65,0,.35,1) 1.35s; }
-.anima .escreve.visto .sublinha path { stroke-dashoffset: 0; }
+.anima .sublinha path { stroke-dashoffset: 300; transition: stroke-dashoffset 1.4s cubic-bezier(.65,0,.35,1); }
+/* o sublinhado só risca quando a frase inteira (e o vídeo, na capa) terminou: classe .risca vem do anima.js */
+.anima .escreve.risca .sublinha path { stroke-dashoffset: 0; }
 .anima .marca-texto { background-size: 0% 100%; transition: background-size 1.2s cubic-bezier(.65,0,.35,1) .5s; }
 .anima .visto .marca-texto, .anima .marca-texto.visto { background-size: 100% 100%; }

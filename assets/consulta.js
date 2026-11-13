@@ -4,7 +4,7 @@
 
   // título da abertura se escreve logo que a página abre
   var titulo = document.querySelector('.c-capa .escreve');
-  if (titulo) setTimeout(function () { titulo.classList.add('visto'); }, 200);
+  if (titulo) setTimeout(function () { titulo.classList.add('visto'); if (window.__riscar) window.__riscar(titulo); }, 200);
 
   // linha do tempo: o fio desce conforme a rolagem e acende cada passo
   var trilha = document.querySelector('.trilha');

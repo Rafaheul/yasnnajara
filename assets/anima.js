@@ -47,10 +47,27 @@
     });
   }
 
+  // sublinhado: só risca depois que a última palavra assentou (e depois do que mais for esperado, como o vídeo)
+  function riscar(h, antes) {
+    var n = h.querySelectorAll('.pi').length;
+    var palavras = new Promise(function (r) { setTimeout(r, Math.max(0, n - 1) * 75 + 1050); });
+    Promise.all([palavras, antes || Promise.resolve()]).then(function () { h.classList.add('risca'); });
+  }
+  window.__riscar = riscar;
+
+  // fim do vídeo da capa (ou na hora, se ele não tocar)
+  var fimVideo = new Promise(function (res) {
+    if (!video || reduz) return res();
+    video.addEventListener('ended', res);
+    video.addEventListener('error', res);
+    setTimeout(function () { if (video.paused && video.currentTime === 0) res(); }, 1200);
+    setTimeout(res, 9000);
+  });
+
   // o título entra quando o nó termina de se desfazer (ou logo, se o vídeo não tocar)
   if (capa) {
     var mostrou = false;
-    var mostra = function () { if (!mostrou) { mostrou = true; capa.classList.add('mostra'); var h = capa.querySelector('.escreve'); if (h) h.classList.add('visto'); } };
+    var mostra = function () { if (!mostrou) { mostrou = true; capa.classList.add('mostra'); var h = capa.querySelector('.escreve'); if (h) { h.classList.add('visto'); riscar(h, fimVideo); } } };
     if (video && !reduz) {
       video.addEventListener('timeupdate', function () { if (video.currentTime > 2.9) mostra(); });
       video.addEventListener('ended', mostra);
