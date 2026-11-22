@@ -1,0 +1,138 @@
+/* =====================================================================
+   VITRINE EM ARCO (22/11/2026): os caminhos como janelas de joalheria
+   ===================================================================== */
+.vitrine { width: 100vw; margin: 40px 0 10px calc(50% - 50vw); }
+.vitrine__topo { text-align: center; padding: 0 16px; margin-bottom: 6px; }
+.vitrine__olho { display: block; font-size: .72rem; letter-spacing: .22em; text-transform: uppercase; color: var(--bronze); font-weight: 600; margin-bottom: 6px; }
+.vitrine__topo h2 { font: 600 clamp(1.9rem, 7vw, 2.5rem)/1.1 "Cormorant Garamond", serif; margin: 0; color: var(--tinta); }
+
+.vitrine__trilho { --lado: calc(50vw - min(37vw, 150px));
+  display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding: 0 var(--lado);
+  padding: 60px var(--lado) 64px; margin: -34px 0 -30px; scrollbar-width: none; -webkit-overflow-scrolling: touch; outline: none; }
+.vitrine__trilho::-webkit-scrollbar { display: none; }
+
+.arco { --mx: 50%; --my: 30%; position: relative; display: block; flex: 0 0 min(74vw, 300px); aspect-ratio: 3 / 4.5; scroll-snap-align: center;
+  border-radius: 50% 50% 22px 22px / 33% 33% 22px 22px; overflow: hidden; isolation: isolate;
+  text-decoration: none; color: #FFF8EC; background: #3B2E20;
+  box-shadow: 0 14px 34px rgba(59,46,32,.22), 0 2px 6px rgba(59,46,32,.12);
+  transform: scale(.9); opacity: .72; filter: saturate(.85);
+  transition: transform .6s cubic-bezier(.22,1,.36,1), opacity .6s, filter .6s, box-shadow .6s; }
+.arco.ativo { transform: scale(1); opacity: 1; filter: none;
+  box-shadow: 0 22px 50px rgba(90,64,24,.32), 0 0 0 1px rgba(224,200,152,.6), 0 0 46px rgba(224,190,120,.35); }
+.arco__foto { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; object-fit: cover; z-index: -2;
+  transform: scale(1.08); transition: transform 1.4s cubic-bezier(.22,1,.36,1); }
+.arco.ativo .arco__foto { transform: scale(1); }
+/* véu escuro embaixo + luz que acompanha o dedo */
+.arco::before { content: ""; position: absolute; inset: 0; z-index: -1;
+  background:
+    radial-gradient(circle at var(--mx) var(--my), rgba(255,236,196,.28), transparent 42%),
+    linear-gradient(180deg, rgba(30,22,12,0) 28%, rgba(30,22,12,.55) 56%, rgba(26,18,8,.93) 100%); }
+/* moldura dourada fina por dentro, no formato do arco, com um losango no alto */
+.arco__moldura { position: absolute; inset: 9px; border: 1px solid rgba(236,214,160,.7); pointer-events: none;
+  border-radius: 50% 50% 15px 15px / 33% 33% 15px 15px; }
+.arco__moldura::after { content: ""; position: absolute; top: -4px; left: 50%; width: 8px; height: 8px; margin-left: -4px; transform: rotate(45deg);
+  background: #E9D3A0; box-shadow: 0 0 10px rgba(255,226,160,.9); }
+/* reflexo que atravessa o arco ativo */
+.arco::after { content: ""; position: absolute; top: -10%; bottom: -10%; width: 40%; left: -80%; z-index: 1; pointer-events: none;
+  background: linear-gradient(100deg, transparent, rgba(255,248,230,.28), transparent); transform: skewX(-16deg); }
+.arco.ativo::after { animation: reflexo-arco 7s ease-in-out 1s infinite; }
+@keyframes reflexo-arco { 0%, 75% { left: -80%; } 100% { left: 140%; } }
+
+.arco__texto { position: absolute; left: 0; right: 0; bottom: 0; padding: 0 24px 26px; display: flex; flex-direction: column; gap: 6px; text-align: left; }
+.arco .card__eyebrow { color: #E9D3A0; margin: 0; font-size: .66rem; }
+.arco .card__titulo { display: block; font: 600 1.7rem/1.08 "Cormorant Garamond", serif; color: #FFF8EC; margin: 0; }
+.arco .card__texto { display: block; color: rgba(255,248,236,.84); font-size: .86rem; line-height: 1.45; margin: 0; }
+.arco__rodape { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 8px; padding-top: 12px;
+  border-top: 1px solid rgba(236,214,160,.35); }
+.arco .preco { font: 600 1.3rem/1 "Bodoni Moda", Georgia, serif; color: #F4E2B4; font-variant-numeric: lining-nums; }
+.arco .seta { color: #FFF8EC; font-size: .82rem; font-weight: 600; padding: 7px 14px; border-radius: 999px; white-space: nowrap;
+  background: rgba(255,248,236,.12); border: 1px solid rgba(236,214,160,.55); }
+.arco.ativo .seta { background: linear-gradient(120deg, #8C6B33, #C4A266 50%, #8C6B33); border-color: rgba(240,220,170,.9); }
+.arco .card__selo { align-self: flex-start; margin: 0 0 2px; color: #3B2E20; background: #E9D3A0; border-color: #F4E2B4; }
+.arco.lista-espera .seta { font-size: .76rem; padding: 7px 12px; }
+@media (hover: hover) { .arco:hover { opacity: 1; filter: none; } }
+
+.vitrine__nav { display: flex; align-items: center; justify-content: center; gap: 16px; }
+.vitrine__pontos { display: flex; gap: 8px; }
+.vitrine__pontos button { width: 8px; height: 8px; padding: 0; border: 0; border-radius: 99px; background: var(--dourado-claro); cursor: pointer;
+  transition: width .4s cubic-bezier(.22,1,.36,1), background .4s; }
+.vitrine__pontos button[aria-selected="true"] { width: 26px; background: var(--bronze); }
+.vitrine__seta { width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--borda); background: var(--papel); color: var(--bronze);
+  font-size: 1rem; cursor: pointer; box-shadow: var(--sombra); }
+.vitrine__seta:hover { border-color: var(--dourado); }
+@media (max-width: 759px) { .vitrine__seta { display: none; } }
+.vitrine__insta { display: block; text-align: center; margin: 22px 16px 0; font-size: .9rem; color: var(--tinta-suave); text-decoration: none; }
+.vitrine__insta b { color: var(--bronze); font-weight: 600; }
+
+/* computador e tablet: os quatro aparecem de uma vez, em 2x2, sem precisar clicar nem deslizar */
+@media (min-width: 700px) {
+  .vitrine__trilho { display: grid; grid-template-columns: repeat(2, minmax(0, 290px)); justify-content: center; gap: 34px 30px;
+    overflow: visible; padding: 30px 24px 20px; margin: 0; scroll-snap-type: none; }
+  .vitrine__trilho .arco { width: 100%; transform: none; opacity: 1; filter: none; }
+  .vitrine__trilho .arco:hover { transform: translateY(-8px); box-shadow: 0 22px 50px rgba(90,64,24,.32), 0 0 0 1px rgba(224,200,152,.6), 0 0 46px rgba(224,190,120,.35); }
+  .vitrine__trilho .arco::after { animation: reflexo-arco 7s ease-in-out infinite; }
+  .vitrine__trilho .arco:nth-child(2)::after { animation-delay: 1.75s; }
+  .vitrine__trilho .arco:nth-child(3)::after { animation-delay: 3.5s; }
+  .vitrine__trilho .arco:nth-child(4)::after { animation-delay: 5.25s; }
+  .vitrine__trilho .arco .seta { background: linear-gradient(120deg, #8C6B33, #C4A266 50%, #8C6B33); border-color: rgba(240,220,170,.9); }
+  .vitrine__trilho .arco .arco__foto { transform: none; }
+  .vitrine__nav { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { .arco, .arco__foto { transition: none; } .arco.ativo::after { animation: none; } }
+
+/* =====================================================================
+   22/11: nome dos produtos como ADESIVO com a marca de cada site,
+   e selo "Grátis" no Primeiro Mapa das Deusas
+   ===================================================================== */
+.arco .card__titulo.marca-adesivo { display: inline-flex; align-items: center; align-self: flex-start; gap: 9px; margin: 4px 0 8px;
+  padding: 8px 14px 9px 12px; border-radius: 7px; border: 3px solid #fff;
+  box-shadow: 0 10px 20px rgba(10,6,2,.45), 0 1px 2px rgba(10,6,2,.3), 0 0 0 1px rgba(184,148,90,.35);
+  transition: transform .6s cubic-bezier(.34,1.56,.64,1); }
+/* Método das Deusas — mesma marca do site do Método */
+.marca-adesivo--metodo { background: #f8f5ee; transform: rotate(-3deg); }
+.marca-adesivo--metodo i { font-style: normal; font-size: 1.9rem; line-height: 1; color: #a18753; }
+.marca-adesivo--metodo span { font: 400 1.22rem/1.05 Georgia, "Times New Roman", serif; color: #30372f; letter-spacing: -.02em; }
+.marca-adesivo--metodo small { display: block; margin-top: 5px; font: 400 .5rem/1 Arial, Helvetica, sans-serif; letter-spacing: .2em; text-transform: uppercase; color: #30372f; }
+/* Perfil de Mercado Lucrativo — mesma marca do site do Perfil */
+.marca-adesivo--perfil { background: #f6f1e8; flex-direction: column; align-items: flex-start; gap: 2px; transform: rotate(2.5deg); }
+.marca-adesivo--perfil b { font: 700 1.35rem/1 "Bodoni Moda", Didot, Georgia, serif; letter-spacing: .14em; text-transform: uppercase; color: #45352F; }
+.marca-adesivo--perfil em { font: italic 600 .98rem/1.1 Newsreader, Georgia, serif; color: #6A343D; }
+.arco.ativo .marca-adesivo--metodo { transform: rotate(-3deg) scale(1.04); }
+.arco.ativo .marca-adesivo--perfil { transform: rotate(2.5deg) scale(1.04); }
+
+
+/* adesivo da marca no alto, à esquerda do arco (22/11) */
+.arco > .card__titulo.marca-adesivo { position: absolute; top: 20%; left: 20px; z-index: 2; margin: 0; }
+@media (max-width: 699px) { .arco > .card__titulo.marca-adesivo { top: 19%; left: 16px; } }
+
+/* adesivo do Instagram */
+.vitrine__insta { display: flex; align-items: center; justify-content: center; gap: 14px; text-align: left; line-height: 1.45; }
+.insta-adesivo { flex: none; width: 50px; height: 50px; padding: 0; border-radius: 15px; background: #fff; border: 3px solid #fff;
+  box-shadow: 0 8px 18px rgba(59,46,32,.22), 0 0 0 1px rgba(184,148,90,.3); transform: rotate(-8deg);
+  transition: transform .5s cubic-bezier(.34,1.56,.64,1); }
+.insta-adesivo svg { display: block; width: 100%; height: 100%; border-radius: 12px; }
+@media (hover: hover) { .vitrine__insta:hover .insta-adesivo { transform: rotate(0deg) scale(1.08); } }
+
+/* =====================================================================
+   22/11: adesivos das marcas saindo pela borda do arco.
+   O arco deixa de cortar o que passa da borda; quem respeita o formato
+   de arco agora é cada camada (foto, véu, reflexo).
+   ===================================================================== */
+.arco { overflow: visible; }
+.arco .arco__foto { border-radius: inherit; }
+.arco::before { border-radius: inherit; }
+.arco::after { inset: 0; top: 0; bottom: 0; left: 0; width: auto; transform: none; border-radius: inherit;
+  background: linear-gradient(100deg, transparent 42%, rgba(255,248,230,.26) 50%, transparent 58%) no-repeat;
+  background-size: 300% 100%; background-position: 120% 0; }
+@keyframes reflexo-arco { 0%, 75% { background-position: 120% 0; } 100% { background-position: -20% 0; } }
+
+.arco > .card__titulo.marca-adesivo { top: -16px; left: auto; right: auto; z-index: 4; }
+@media (max-width: 699px) { .arco > .card__titulo.marca-adesivo { top: -14px; left: auto; } }
+/* Método: no alto à direita, lado esquerdo mais alto */
+.arco > .card__titulo.marca-adesivo--metodo, .arco.ativo > .card__titulo.marca-adesivo--metodo { right: -14px; transform: rotate(6deg); }
+/* Perfil: no alto à esquerda, lado direito mais alto */
+.arco > .card__titulo.marca-adesivo--perfil, .arco.ativo > .card__titulo.marca-adesivo--perfil { left: -14px; transform: rotate(-6deg); }
+@media (max-width: 699px) {
+  .arco > .card__titulo.marca-adesivo--metodo, .arco.ativo > .card__titulo.marca-adesivo--metodo { right: -10px; left: auto; }
+  .arco > .card__titulo.marca-adesivo--perfil, .arco.ativo > .card__titulo.marca-adesivo--perfil { left: -10px; }
+}

@@ -51,8 +51,32 @@
   function riscar(h, antes) {
     var n = h.querySelectorAll('.pi').length;
     var palavras = new Promise(function (r) { setTimeout(r, Math.max(0, n - 1) * 75 + 1050); });
-    Promise.all([palavras, antes || Promise.resolve()]).then(function () { h.classList.add('risca'); });
+    Promise.all([palavras, antes || Promise.resolve()]).then(function () {
+      // na capa, primeiro o ramo sobe da linha; depois o sublinhado corre
+      var ramo = capa && capa.contains(h) ? capa.querySelector('.capa__ramo') : null;
+      if (ramo) { tracarRamo(); ramo.classList.add('on'); setTimeout(function () { h.classList.add('risca'); }, 720); }
+      else h.classList.add('risca');
+    });
   }
+
+  // ramo: liga a linha que sobra do vídeo (entre as duas frases) ao começo do sublinhado de "ponta solta"
+  function tracarRamo() {
+    if (!capa) return;
+    var svg = capa.querySelector('.capa__ramo'), sub = capa.querySelector('.sublinha svg'), linha = capa.querySelector('.capa__linha');
+    if (!svg || !sub || !linha) return;
+    var c = capa.getBoundingClientRect(), r = sub.getBoundingClientRect(), l = linha.getBoundingClientRect();
+    var sx = r.left - c.left + r.width * 4 / 240, sy = r.top - c.top + r.height * 14 / 40;
+    var ly = l.top - c.top + l.height / 2, x0 = sx - 38;
+    svg.setAttribute('viewBox', '0 0 ' + c.width.toFixed(1) + ' ' + c.height.toFixed(1));
+    var p = svg.querySelector('path');
+    p.setAttribute('pathLength', '1');
+    p.setAttribute('d', 'M' + x0.toFixed(1) + ' ' + ly.toFixed(1) +
+      ' C' + (x0 + 24).toFixed(1) + ' ' + ly.toFixed(1) + ' ' + (sx - 14).toFixed(1) + ' ' + (sy + (ly - sy) * 0.62).toFixed(1) + ' ' + sx.toFixed(1) + ' ' + sy.toFixed(1));
+  }
+  tracarRamo();
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(tracarRamo);
+  addEventListener('resize', tracarRamo);
+  addEventListener('load', tracarRamo);
   window.__riscar = riscar;
 
   // fim do vídeo da capa (ou na hora, se ele não tocar)
@@ -75,6 +99,11 @@
       setTimeout(function () { if (video.paused || video.currentTime === 0) mostra(); }, 1200);
       setTimeout(mostra, 4500);
     } else { mostra(); }
-    if (video && reduz) { video.removeAttribute('autoplay'); try { video.pause(); } catch (e) {} }
+    if (video && reduz) {
+      video.removeAttribute('autoplay'); try { video.pause(); } catch (e) {}
+      // parado: mostra o último quadro (a linha reta), não o nó
+      var fim = function () { try { video.currentTime = Math.max(0, video.duration - 0.05); } catch (e) {} };
+      if (video.readyState >= 1) fim(); else video.addEventListener('loadedmetadata', fim);
+    }
   }
 })();

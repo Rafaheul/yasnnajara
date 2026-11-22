@@ -95,3 +95,184 @@ body { background: linear-gradient(rgba(247,240,228,.62), rgba(247,240,228,.62))
 .anima .escreve.risca .sublinha path { stroke-dashoffset: 0; }
 .anima .marca-texto { background-size: 0% 100%; transition: background-size 1.2s cubic-bezier(.65,0,.35,1) .5s; }
 .anima .visto .marca-texto, .anima .marca-texto.visto { background-size: 100% 100%; }
+
+/* ===== 22/11: primeira tela com rosto e botão ===== */
+.capa__assina { display: inline-flex; align-items: center; gap: 12px; text-align: left; margin: 4px auto 16px;
+  padding: 6px 16px 6px 6px; background: rgba(255,251,244,.85); border: 1px solid var(--borda); border-radius: 999px; }
+.capa__assina img { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; object-position: 50% 28%; flex: none; }
+.capa__assina span { font-size: .85rem; line-height: 1.35; color: var(--tinta-suave); }
+.capa__assina b { display: block; font: 600 1.08rem/1.2 "Cormorant Garamond", serif; color: var(--tinta); }
+.capa__btn { display: block; width: 100%; max-width: 340px; margin: 0 auto 14px; box-shadow: 0 8px 22px rgba(140,107,51,.28); }
+.capa__btn .seta { color: var(--papel); font-weight: 600; font-size: 1rem; }
+.capa__descer { display: inline-block; font-size: .92rem; }
+.capa__titulo { margin-bottom: 22px; }
+.anima .capa.mostra .capa__assina { transition-delay: .4s; }
+.anima .capa.mostra .capa__btn { transition-delay: .55s; }
+.anima .capa.mostra .capa__descer { transition-delay: .7s; }
+
+/* ===== barra de marcar (celular) — mesma da página da consulta ===== */
+.c-barra { position: fixed; left: 10px; right: 10px; bottom: 10px; z-index: 20; display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  background: rgba(255,251,244,.96); border: 1px solid var(--borda); border-radius: 16px; padding: 8px 8px 8px 16px; box-shadow: 0 10px 30px rgba(59,46,32,.16);
+  transform: translateY(140%); transition: transform .5s cubic-bezier(.22,1,.36,1); font-size: .9rem; color: var(--tinta-suave); }
+.c-barra b { color: var(--tinta); }
+.c-barra.mostra { transform: none; }
+.c-barra__btn { padding: 10px 18px; text-decoration: none; }
+.c-barra__btn .seta { color: var(--papel); font-weight: 600; }
+@media (min-width: 760px) { .c-barra { display: none; } }
+@media (max-width: 759px) { .rodape { padding-bottom: 90px; } }
+
+/* ===== produto ainda não aberto: lista de espera pelo WhatsApp ===== */
+.card.lista-espera { opacity: 1; }
+.card__selo { display: inline-block; margin: 0 0 8px; padding: 3px 10px; border-radius: 999px; font-size: .7rem; font-weight: 600;
+  letter-spacing: .08em; text-transform: uppercase; color: var(--bronze); background: var(--areia-escura); border: 1px solid var(--borda); }
+
+/* ===== depoimentos ===== */
+.depo { padding-top: 28px; }
+.depo h2 { text-align: center; margin: 0 0 18px; }
+.depo__lista { display: grid; gap: 14px; }
+@media (min-width: 640px) { .depo__lista { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); } }
+.depo__item { margin: 0; background: var(--papel); border: 1px solid var(--borda); border-radius: var(--raio); padding: 22px 22px 18px; box-shadow: var(--sombra); position: relative; }
+.depo__item::before { content: "“"; position: absolute; top: -6px; left: 16px; font: 600 3.4rem/1 "Cormorant Garamond", serif; color: var(--dourado-claro); }
+.depo__item blockquote { margin: 10px 0 12px; color: var(--tinta); line-height: 1.55; }
+.depo__item figcaption { font-size: .85rem; color: var(--tinta-suave); }
+.depo__item figcaption b { color: var(--tinta); }
+/* tela de notebook (768 de altura): fio menor para o botão caber na primeira tela */
+
+
+/* =====================================================================
+   22/11 (2ª rodada): selo de preço, luz atrás da frase, frase em serifa
+   itálica e botões dourados. Com "reduzir movimento": tudo parado.
+   ===================================================================== */
+
+/* ----- frase de apoio em serifa itálica ----- */
+.capa__texto { font: italic 500 clamp(1.22rem, 4.6vw, 1.42rem)/1.42 "Cormorant Garamond", Georgia, serif;
+  color: var(--tinta); letter-spacing: .005em; max-width: 26em; }
+
+/* ----- luz que se move atrás da frase ----- */
+.capa { position: relative; }
+.capa > *:not(.capa__luz) { position: relative; z-index: 1; }
+.capa__luz { position: absolute; left: -8%; right: -8%; top: 24%; height: 56%; z-index: 0; pointer-events: none; }
+.capa__aura { position: absolute; border-radius: 50%; filter: blur(34px); opacity: .7; will-change: transform; }
+.capa__aura--1 { width: 62%; height: 70%; left: 4%; top: 8%;
+  background: radial-gradient(circle, rgba(232,204,140,.95), rgba(232,204,140,0) 70%); animation: aura-1 16s ease-in-out infinite alternate; }
+.capa__aura--2 { width: 54%; height: 62%; right: 2%; top: 26%;
+  background: radial-gradient(circle, rgba(255,236,196,1), rgba(255,236,196,0) 70%); animation: aura-2 19s ease-in-out infinite alternate; }
+.capa__aura--3 { width: 40%; height: 46%; left: 32%; top: 46%; opacity: .4;
+  background: radial-gradient(circle, rgba(196,150,82,.8), rgba(196,150,82,0) 70%); animation: aura-3 23s ease-in-out infinite alternate; }
+@keyframes aura-1 { to { transform: translate(18%, 10%) scale(1.12); } }
+@keyframes aura-2 { to { transform: translate(-22%, -8%) scale(.92); } }
+@keyframes aura-3 { to { transform: translate(-30%, -18%) scale(1.2); } }
+
+/* faíscas: estrelinhas de quatro pontas que acendem e apagam */
+.capa__luz i { position: absolute; left: var(--x); top: var(--y); width: calc(var(--s) * 5); height: calc(var(--s) * 5);
+  margin: calc(var(--s) * -2.5) 0 0 calc(var(--s) * -2.5); opacity: 0;
+  background:
+    radial-gradient(circle, #FFF8E6 0 14%, rgba(201,163,90,.9) 26%, rgba(201,163,90,0) 46%),
+    linear-gradient(90deg, transparent 45%, rgba(184,148,90,.95) 50%, transparent 55%),
+    linear-gradient(0deg, transparent 45%, rgba(184,148,90,.95) 50%, transparent 55%);
+  filter: drop-shadow(0 0 5px rgba(212,170,90,.85));
+  animation: faisca 5.6s ease-in-out var(--a) infinite; }
+@keyframes faisca {
+  0%, 100% { opacity: 0; transform: scale(.2) rotate(0deg) translateY(0); }
+  18% { opacity: 1; transform: scale(1) rotate(25deg) translateY(-3px); }
+  36% { opacity: 0; transform: scale(.3) rotate(45deg) translateY(-6px); } }
+
+/* ----- selo do preço, colado sobre a etiqueta ----- */
+.capa__assina { position: relative; padding-right: 62px; overflow: visible; }
+.capa__assina .selo-preco { position: absolute; right: -30px; top: 50%; width: 84px; height: 84px; margin-top: -48px; border-radius: 50%;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0;
+  font: 600 1.6rem/1 "Bodoni Moda", "Didot", Georgia, serif; color: #FFFBF4; font-variant-numeric: lining-nums;
+  background: radial-gradient(circle at 30% 25%, #F4E2B4 0%, #D2B06F 30%, #A9843F 62%, #7A5A24 100%);
+  border: 3px solid #FFFBF4;
+  box-shadow: 0 0 0 1px rgba(140,107,51,.35), 0 10px 22px rgba(90,64,24,.32), inset 0 2px 3px rgba(255,248,226,.6), inset 0 -3px 6px rgba(70,48,14,.35);
+  text-shadow: 0 1px 1px rgba(70,48,14,.45);
+  transform: rotate(-10deg); z-index: 2; overflow: hidden; }
+.selo-preco::before { content: ""; position: absolute; inset: 5px; border-radius: 50%; border: 1px dashed rgba(255,248,226,.7); }
+.capa__assina .selo-preco small { font: 500 italic .74rem/1 "Bodoni Moda", Georgia, serif; letter-spacing: .06em; margin: 2px 0 1px; }
+.capa__assina .selo-preco strong { font: 600 1.5rem/1 "Bodoni Moda", Georgia, serif; display: flex; align-items: flex-start; margin-left: 6px; }
+.capa__assina .selo-preco sup { font-size: .56rem; position: static; margin-top: 2px; }
+/* reflexo que passa pelo selo */
+.selo-preco::after { content: ""; position: absolute; top: -20%; bottom: -20%; width: 36%; left: -60%;
+  background: linear-gradient(100deg, transparent, rgba(255,252,240,.75), transparent); transform: skewX(-18deg);
+  animation: reflexo 6s ease-in-out 2.2s infinite; }
+@keyframes reflexo { 0%, 70% { left: -60%; } 100% { left: 130%; } }
+/* entrada: o selo "cola" na etiqueta */
+.anima .capa .capa__assina .selo-preco { opacity: 0; transform: rotate(-38deg) scale(1.6); transition: opacity .35s ease .95s, transform .7s cubic-bezier(.34,1.56,.64,1) .95s; }
+.anima .capa.mostra .capa__assina .selo-preco { opacity: 1; transform: rotate(-10deg) scale(1); }
+
+/* ----- botões dourados ----- */
+.btn.btn-luxo { position: relative; overflow: hidden; isolation: isolate;
+  background: linear-gradient(120deg, #6A4E1D 0%, #8C6B33 22%, #C4A266 46%, #E3CB93 52%, #B8945A 60%, #8C6B33 82%, #6A4E1D 100%);
+  background-size: 220% 100%; background-position: 0% 50%;
+  border: 1px solid rgba(236,214,160,.85); letter-spacing: .03em;
+  box-shadow: inset 0 1px 0 rgba(255,244,214,.6), inset 0 -2px 8px rgba(58,38,10,.28),
+    0 10px 26px rgba(140,107,51,.34), 0 0 0 4px rgba(224,200,152,.22);
+  transition: background-position .9s cubic-bezier(.22,1,.36,1), transform .3s cubic-bezier(.22,1,.36,1), box-shadow .3s;
+  animation: btn-respira 3.8s ease-in-out infinite; }
+.btn.btn-luxo .seta { position: relative; z-index: 1; color: #FFFBF4; text-shadow: 0 1px 2px rgba(58,38,10,.45); }
+.btn.btn-luxo::after { content: ""; position: absolute; z-index: 0; top: 0; bottom: 0; width: 34%; left: -50%;
+  background: linear-gradient(100deg, transparent, rgba(255,250,232,.55), transparent); transform: skewX(-20deg);
+  animation: reflexo-btn 4.8s ease-in-out 1.6s infinite; }
+@keyframes reflexo-btn { 0%, 68% { left: -50%; } 100% { left: 130%; } }
+@keyframes btn-respira {
+  0%, 100% { box-shadow: inset 0 1px 0 rgba(255,244,214,.6), inset 0 -2px 8px rgba(58,38,10,.28), 0 10px 26px rgba(140,107,51,.34), 0 0 0 4px rgba(224,200,152,.22); }
+  50% { box-shadow: inset 0 1px 0 rgba(255,244,214,.6), inset 0 -2px 8px rgba(58,38,10,.28), 0 12px 34px rgba(184,148,90,.5), 0 0 0 7px rgba(224,200,152,.16); } }
+.btn.btn-luxo:hover:not(:disabled) { background: linear-gradient(120deg, #6A4E1D 0%, #8C6B33 22%, #C4A266 46%, #E3CB93 52%, #B8945A 60%, #8C6B33 82%, #6A4E1D 100%);
+  background-size: 220% 100%; background-position: 100% 50%; transform: translateY(-2px); }
+.btn.btn-luxo:active { transform: translateY(0) scale(.98); }
+.c-barra__btn.btn-luxo { padding: 11px 22px; }
+
+/* quem pediu "reduzir movimento": a luz fica, mas parada */
+@media (prefers-reduced-motion: reduce) {
+  .capa__aura, .capa__luz i, .selo-preco::after, .btn.btn-luxo, .btn.btn-luxo::after { animation: none; }
+  .capa__luz i:nth-child(odd) { opacity: .7; transform: scale(.7) rotate(25deg); }
+}
+
+/* ----- 22/11 (3ª rodada): o valor é um adesivo separado, colado por cima do selo ----- */
+.capa__assina .selo-preco { justify-content: flex-start; padding-top: 11px; overflow: visible; }
+.capa__assina .selo-preco small { font-size: .8rem; margin: 0; }
+.capa__assina .selo-preco::after { display: none; }          /* o reflexo passa agora no adesivo */
+.capa__assina .selo-preco__estrela { position: absolute; bottom: 9px; left: 74%; width: 10px; height: 10px; margin-left: -5px;
+  background: linear-gradient(90deg, transparent 42%, #FFF8E6 50%, transparent 58%), linear-gradient(0deg, transparent 42%, #FFF8E6 50%, transparent 58%); }
+.capa__assina .selo-preco__valor { position: absolute; left: 50%; top: 50%; margin: 0; z-index: 3;
+  display: flex; align-items: flex-start; padding: 5px 11px 6px 12px; border-radius: 10px; overflow: hidden;
+  font: 600 1.5rem/1 "Bodoni Moda", "Didot", Georgia, serif; font-variant-numeric: lining-nums; letter-spacing: -.01em;
+  color: #6A4E1D; text-shadow: none;
+  background: linear-gradient(160deg, #FFFDF7 0%, #FBF3E2 100%);
+  border: 3px solid #fff;
+  box-shadow: 0 0 0 1px rgba(140,107,51,.28), 0 6px 14px rgba(70,48,14,.32), 0 1px 2px rgba(70,48,14,.25);
+  transform: translate(-62%, -14%) rotate(14deg); }
+.capa__assina .selo-preco__valor sup { font-size: .7rem; margin: 3px 0 0 1px; position: static; color: #8C6B33; }
+/* reflexo no adesivo */
+.capa__assina .selo-preco__valor::after { content: ""; position: absolute; top: -30%; bottom: -30%; width: 40%; left: -70%;
+  background: linear-gradient(100deg, transparent, rgba(255,255,255,.9), transparent); transform: skewX(-18deg);
+  animation: reflexo 6s ease-in-out 2.6s infinite; }
+/* entrada: primeiro o selo, depois o adesivo "bate" por cima */
+.anima .capa .capa__assina .selo-preco__valor { opacity: 0; transform: translate(-62%, -14%) rotate(40deg) scale(1.9);
+  transition: opacity .25s ease 1.45s, transform .6s cubic-bezier(.34,1.56,.64,1) 1.45s; }
+.anima .capa.mostra .capa__assina .selo-preco__valor { opacity: 1; transform: translate(-62%, -14%) rotate(14deg) scale(1); }
+@media (prefers-reduced-motion: reduce) { .capa__assina .selo-preco__valor::after { animation: none; } }
+
+/* =====================================================================
+   22/11: o vídeo do nó passa para baixo das frases; a linha que sobra no
+   fim fica entre "Todo padrão..." e "A gente começa...", e um ramo sobe
+   dela até o sublinhado de "ponta solta".
+   ===================================================================== */
+.capa { padding-top: 34px; }
+.capa .capa__titulo { margin-bottom: 0; }
+.capa > .capa__linha.capa__linha { position: relative; z-index: auto; height: clamp(78px, 20vw, 104px); margin: 0; pointer-events: none; }
+.capa .capa__linha .capa__fio { position: absolute; left: 50%; top: 50%; width: min(640px, 100vw); max-width: none; margin: 0;
+  transform: translate(-50%, -51.7%); }
+.capa > .capa__ramo.capa__ramo { position: absolute; left: 0; top: 0; width: 100%; height: 100%; z-index: 0; overflow: visible; pointer-events: none; }
+.capa__ramo path { fill: none; stroke: var(--dourado); stroke-width: 2.4; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 0; }
+.anima .capa__ramo path { stroke-dashoffset: 1; transition: stroke-dashoffset .8s cubic-bezier(.65,0,.35,1); }
+.anima .capa__ramo.on path { stroke-dashoffset: 0; }
+.capa .capa__texto { margin-top: 0; }
+
+/* 23/11: botões em serifa (mais elegante) e etiqueta "Com Yasnnajára" clicável */
+.btn.btn-luxo .seta { font: 600 1.32rem/1 "Cormorant Garamond", Georgia, serif; letter-spacing: .03em; }
+.c-barra__btn.btn-luxo .seta { font-size: 1.18rem; }
+a.capa__assina { color: inherit; text-decoration: none; cursor: pointer;
+  transition: transform .4s cubic-bezier(.22,1,.36,1), box-shadow .4s, border-color .4s; }
+@media (hover: hover) { a.capa__assina:hover { transform: translateY(-2px); border-color: var(--dourado-claro); box-shadow: 0 10px 24px rgba(140,107,51,.18); } }
+a.capa__assina:focus-visible { outline: 2px solid var(--bronze); outline-offset: 3px; }
