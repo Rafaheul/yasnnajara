@@ -186,3 +186,8 @@
 .anima .prazer.visto .prazer__oi { opacity: 1; transform: none; }
 .anima .prazer__titulo .prazer__assina { transition-delay: .45s; transition-duration: 1.8s; }
 .anima .prazer__titulo .prazer__assina::after { transition-delay: 2s; }
+
+/* 23/11: no iPhone (Safari) o degradê recortado nas letras some quando o título é quebrado em
+   palavras para a animação. "trabalho" fica em dourado sólido, que aparece em qualquer celular. */
+.como .como__titulo em { background: none; -webkit-background-clip: border-box; background-clip: border-box;
+  color: #E3C88E; -webkit-text-fill-color: #E3C88E; }
