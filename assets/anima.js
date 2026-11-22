@@ -99,11 +99,21 @@
       setTimeout(function () { if (video.paused || video.currentTime === 0) mostra(); }, 1200);
       setTimeout(mostra, 4500);
     } else { mostra(); }
-    if (video && reduz) {
-      video.removeAttribute('autoplay'); try { video.pause(); } catch (e) {}
-      // parado: mostra o último quadro (a linha reta), não o nó
-      var fim = function () { try { video.currentTime = Math.max(0, video.duration - 0.05); } catch (e) {} };
-      if (video.readyState >= 1) fim(); else video.addEventListener('loadedmetadata', fim);
+    // Quando o vídeo não pode tocar sozinho ("reduzir movimento", modo de pouca bateria do iPhone),
+    // o celular mostraria um botão de play por cima. Nesses casos ele vira a imagem parada da linha final.
+    var trocou = false;
+    function virarImagem() {
+      if (trocou || !video || !video.parentNode) return; trocou = true;
+      var img = document.createElement('img');
+      img.className = video.className; img.alt = ''; img.setAttribute('aria-hidden', 'true');
+      img.src = 'assets/no-fim.jpg?v=202611230100';
+      try { video.pause(); } catch (e) {}
+      video.parentNode.replaceChild(img, video);
+    }
+    if (video && reduz) virarImagem();
+    else if (video) {
+      try { var tentativa = video.play(); if (tentativa && tentativa.catch) tentativa.catch(virarImagem); } catch (e) { virarImagem(); }
+      setTimeout(function () { if (video.paused && !video.ended && video.currentTime === 0 && video.readyState >= 2) virarImagem(); }, 1500);
     }
   }
 })();

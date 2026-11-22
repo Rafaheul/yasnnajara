@@ -276,3 +276,6 @@ a.capa__assina { color: inherit; text-decoration: none; cursor: pointer;
   transition: transform .4s cubic-bezier(.22,1,.36,1), box-shadow .4s, border-color .4s; }
 @media (hover: hover) { a.capa__assina:hover { transform: translateY(-2px); border-color: var(--dourado-claro); box-shadow: 0 10px 24px rgba(140,107,51,.18); } }
 a.capa__assina:focus-visible { outline: 2px solid var(--bronze); outline-offset: 3px; }
+/* garantia extra: nunca mostrar o botão de play do sistema no vídeo da capa */
+.capa__fio::-webkit-media-controls, .capa__fio::-webkit-media-controls-start-playback-button,
+.capa__fio::-webkit-media-controls-overlay-play-button { display: none !important; -webkit-appearance: none; opacity: 0; }
