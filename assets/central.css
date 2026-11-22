@@ -279,3 +279,49 @@ a.capa__assina:focus-visible { outline: 2px solid var(--bronze); outline-offset:
 /* garantia extra: nunca mostrar o botão de play do sistema no vídeo da capa */
 .capa__fio::-webkit-media-controls, .capa__fio::-webkit-media-controls-start-playback-button,
 .capa__fio::-webkit-media-controls-overlay-play-button { display: none !important; -webkit-appearance: none; opacity: 0; }
+
+/* =====================================================================
+   23/11: rodapé completo (as duas páginas)
+   ===================================================================== */
+.rodape-site { position: relative; margin-top: 0; color: rgba(243,232,214,.72); font-size: .9rem;
+  background: linear-gradient(180deg, #1C140A 0%, #160F07 100%); border-top: 1px solid rgba(224,200,152,.18); }
+.rodape-site::before { content: ""; position: absolute; left: 50%; top: -1px; width: min(420px, 70%); height: 1px; transform: translateX(-50%);
+  background: linear-gradient(90deg, transparent, #C9A35A, transparent); }
+.rodape-site__dentro { max-width: 1060px; margin: 0 auto; padding: 56px 24px 34px; display: grid; gap: 36px 28px;
+  grid-template-columns: 1fr 1fr; }
+.rodape-site__marca { grid-column: 1 / -1; }
+@media (min-width: 860px) { .rodape-site__dentro { grid-template-columns: 1.5fr 1fr 1fr 1fr; } .rodape-site__marca { grid-column: auto; } }
+.rodape-site__marca img { width: 52px; height: 52px; object-fit: contain; filter: brightness(1.6) saturate(.7); }
+.rodape-site__nome { margin: 10px 0 2px; font: 600 1.7rem/1.1 "Cormorant Garamond", Georgia, serif; color: #FFF8EC; }
+.rodape-site__tag { margin: 0 0 12px; font-size: .68rem; letter-spacing: .18em; text-transform: uppercase; color: #E0C898; }
+.rodape-site__frase { margin: 0 0 18px; max-width: 26em; line-height: 1.55; }
+.rodape-site__redes { display: flex; gap: 10px; }
+.rodape-site__redes a { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 50%; color: #E0C898;
+  border: 1px solid rgba(224,200,152,.4); transition: background .3s, color .3s, transform .3s, border-color .3s; }
+.rodape-site__redes svg { width: 20px; height: 20px; }
+.rodape-site__redes a:hover { background: linear-gradient(135deg, #C9A35A, #8C6B33); color: #FFF8EC; border-color: transparent; transform: translateY(-2px); }
+.rodape-site__col { display: flex; flex-direction: column; gap: 10px; }
+.rodape-site__titulo { margin: 0 0 4px; font: 600 .7rem/1 "Inter", sans-serif; letter-spacing: .2em; text-transform: uppercase; color: #E0C898; }
+.rodape-site__col a { color: rgba(243,232,214,.82); text-decoration: none; line-height: 1.4; transition: color .25s; cursor: pointer; }
+.rodape-site__col a:hover { color: #F4E2B4; }
+.rodape-site__col small { margin-left: 4px; font-size: .62rem; letter-spacing: .12em; text-transform: uppercase; color: #C9A35A; }
+.rodape-site__base { max-width: 1060px; margin: 0 auto; padding: 18px 24px 22px; display: flex; flex-wrap: wrap; gap: 8px 20px;
+  justify-content: space-between; align-items: center; border-top: 1px solid rgba(224,200,152,.14); font-size: .78rem; color: rgba(243,232,214,.5); }
+.rodape-site__topo { color: #E0C898; text-decoration: none; }
+.rodape-site__topo:hover { color: #F4E2B4; }
+@media (max-width: 759px) { .rodape-site__base { padding-bottom: 96px; } }
+
+/* 23/11: rodapé em bege champanhe (contraste com a faixa escura de cima) */
+.rodape-site { color: #6B5942; background: linear-gradient(180deg, #F1E4CB 0%, #E7D4B1 100%); border-top: 0; }
+.rodape-site::before { height: 2px; width: min(520px, 80%); background: linear-gradient(90deg, transparent, #B8945A, transparent); }
+.rodape-site__marca img { filter: none; }
+.rodape-site__nome { color: #3B2E20; }
+.rodape-site__tag, .rodape-site__titulo { color: #8C6B33; }
+.rodape-site__redes a { color: #8C6B33; border-color: rgba(140,107,51,.45); background: rgba(255,251,244,.5); }
+.rodape-site__redes a:hover { color: #FFFBF4; }
+.rodape-site__col a { color: #3B2E20; }
+.rodape-site__col a:hover { color: #8C6B33; }
+.rodape-site__col small { color: #A9843F; }
+.rodape-site__base { color: rgba(59,46,32,.6); border-top-color: rgba(140,107,51,.22); }
+.rodape-site__topo { color: #8C6B33; }
+.rodape-site__topo:hover { color: #6A4E1D; }

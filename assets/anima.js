@@ -29,7 +29,7 @@
 
   if (!reduz && 'IntersectionObserver' in window) {
     raiz.classList.add('anima');
-    document.querySelectorAll('main h2, .topo h1').forEach(function (h) { h.classList.add('escreve'); });
+    document.querySelectorAll('main h2:not(.sem-escreve), .topo h1').forEach(function (h) { h.classList.add('escreve'); });
     document.querySelectorAll('.escreve').forEach(quebrar);
     document.querySelectorAll('.capa .escreve').forEach(function (h) { h.style.setProperty('--d', '0ms'); });
     document.querySelectorAll('.card, .fio-divisor').forEach(function (el) {

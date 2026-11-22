@@ -176,3 +176,13 @@
 .como .como__titulo { font: 600 clamp(2.7rem, 11vw, 3.7rem)/1 "Cormorant Garamond", Georgia, serif; letter-spacing: -.01em; color: #FFF8EC; margin: 0 0 32px; }
 .como__titulo em { font-style: italic; font-weight: 500;
   background: linear-gradient(100deg, #C9A35A, #F8EAC4 50%, #C9A35A); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+
+/* 23/11: a assinatura dourada (com o traço) virou o nome do título */
+.prazer__titulo .prazer__assina { display: inline-block; margin: 0; padding: 0 6px 12px 0; }
+.prazer__titulo .prazer__assina em { font: italic 600 clamp(2.9rem, 12vw, 3.7rem)/1.05 "Cormorant Garamond", Georgia, serif; }
+.prazer__titulo .prazer__assina small { top: .95rem; margin-left: 6px; font-size: .82rem; }
+.prazer__titulo .prazer__assina::after { height: 1.5px; }
+.anima .prazer__oi { opacity: 0; transform: translateY(12px); transition: opacity .8s ease .2s, transform .8s cubic-bezier(.22,1,.36,1) .2s; }
+.anima .prazer.visto .prazer__oi { opacity: 1; transform: none; }
+.anima .prazer__titulo .prazer__assina { transition-delay: .45s; transition-duration: 1.8s; }
+.anima .prazer__titulo .prazer__assina::after { transition-delay: 2s; }
