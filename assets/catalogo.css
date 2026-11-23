@@ -134,3 +134,28 @@ html { overflow-x: clip; }
 .servico__agendar:active { transform: scale(.97); }
 .servico__agendar:focus-visible { outline: 2px solid var(--bronze); outline-offset: 3px; }
 @media (prefers-reduced-motion: reduce) { .servico__mais summary::after { transition: none; } }
+
+/* =====================================================================
+   23/11 (3ª): abertura dos tratamentos com a imagem do pêndulo sobre a lótus
+   ===================================================================== */
+.trat-capa { position: relative; display: flex; align-items: center; min-height: 230px; margin: 0 0 14px; border-radius: 14px; overflow: hidden; isolation: isolate;
+  background: #1E150B; color: #FFF8EC; box-shadow: 0 16px 36px rgba(59,46,32,.26), 0 0 0 1px rgba(224,200,152,.35); }
+.trat-capa__foto { position: absolute; top: 0; right: 0; width: 62%; height: 100%; object-fit: cover; object-position: 50% 40%; z-index: -2;
+  transition: transform 1.6s cubic-bezier(.22,1,.36,1); }
+.trat-capa::before { content: ""; position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(90deg, #1E150B 36%, rgba(30,21,11,.75) 50%, rgba(30,21,11,0) 78%); }
+.trat-capa__texto { max-width: 50%; padding: 28px 30px; }
+.trat-capa__olho { font-size: .64rem; letter-spacing: .2em; text-transform: uppercase; color: #E9D3A0; font-weight: 600; }
+.trat-capa h3 { margin: 6px 0 8px; font: 600 italic clamp(1.7rem, 4.6vw, 2.2rem)/1.05 "Bodoni Moda", Georgia, serif; font-variation-settings: "opsz" 28; color: #FFF8EC; }
+.trat-capa p { margin: 0; font-size: .9rem; line-height: 1.5; color: rgba(255,248,236,.8); }
+@media (hover: hover) { .trat-capa:hover .trat-capa__foto { transform: scale(1.04); } }
+/* celular: a imagem ocupa a faixa e o texto desce para a base */
+@media (max-width: 600px) {
+  .trat-capa { align-items: flex-end; min-height: 370px; }
+  .trat-capa__foto { width: 100%; object-position: 50% 52%; }
+  .trat-capa::before { background: linear-gradient(0deg, #1E150B 30%, rgba(30,21,11,.55) 55%, rgba(30,21,11,0) 80%); }
+  .trat-capa__texto { max-width: none; padding: 22px 20px; }
+}
+.anima .carta .trat-capa { opacity: 0; transform: translateY(16px); }
+.anima .carta.vista .trat-capa { opacity: 1; transform: none; transition: opacity .8s cubic-bezier(.22,1,.36,1) .15s, transform .8s cubic-bezier(.22,1,.36,1) .15s; }
+@media (prefers-reduced-motion: reduce) { .trat-capa__foto { transition: none; } }
