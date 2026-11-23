@@ -15,11 +15,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,600;0,6..96,700;1,6..96,500&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@1,6..72,600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/style.css?v=202611231700">
-<link rel="stylesheet" href="assets/central.css?v=202611231700">
-<link rel="stylesheet" href="assets/vitrine.css?v=202611231700">
-<link rel="stylesheet" href="assets/secoes.css?v=202611231700">
-<link rel="stylesheet" href="assets/catalogo.css?v=202611231700">
+<link rel="stylesheet" href="assets/style.css?v=202611231900">
+<link rel="stylesheet" href="assets/central.css?v=202611231900">
+<link rel="stylesheet" href="assets/vitrine.css?v=202611231900">
+<link rel="stylesheet" href="assets/secoes.css?v=202611231900">
+<link rel="stylesheet" href="assets/catalogo.css?v=202611231900">
 </head>
 <body>
 
@@ -74,30 +74,21 @@
     <header class="vitrine__topo catalogo__topo">
       <span class="vitrine__olho">Catálogo</span>
       <h2>Escolha o seu caminho</h2>
-      <p class="catalogo__sub">Serviços são feitos por mim, com hora marcada. Produtos você faz online, no seu tempo.</p>
     </header>
 
-    <div class="catalogo__abas" role="tablist" aria-label="Tipo">
-      <span class="catalogo__marcador" aria-hidden="true"></span>
-      <button class="catalogo__aba" type="button" role="tab" id="aba-servicos" aria-controls="servicos" aria-selected="true">
-        <b>Serviços</b><small>com a Yasnnajára</small></button>
-      <button class="catalogo__aba" type="button" role="tab" id="aba-produtos" aria-controls="produtos" aria-selected="false" tabindex="-1">
-        <b>Produtos</b><small>no seu tempo</small></button>
-    </div>
-
     <!-- ---------- SERVIÇOS: a carta ---------- -->
-    <div class="catalogo__painel" id="servicos" role="tabpanel" aria-labelledby="aba-servicos">
+    <div class="catalogo__bloco" id="servicos">
+      <h3 class="catalogo__rotulo"><b>Serviços</b><small>feitos por mim, com hora marcada</small></h3>
       <div class="carta">
         <span class="carta__moldura" aria-hidden="true"></span>
         <header class="carta__topo">
           <span class="carta__orna" aria-hidden="true">✦</span>
-          <p class="carta__titulo">Carta de serviços</p>
           <p class="carta__nota">Atendimento individual · agende pelo WhatsApp</p>
         </header>
 
         <!-- serviço em destaque: tem página própria -->
         <article class="servico-destaque">
-          <img class="servico-destaque__foto" src="assets/porta-consulta.webp?v=202611231700" alt="" width="800" height="1200" loading="lazy">
+          <img class="servico-destaque__foto" src="assets/porta-consulta.webp?v=202611231900" alt="" width="800" height="1200" loading="lazy">
           <div class="servico-destaque__texto">
             <span class="servico-destaque__olho">Online · 1 hora</span>
             <h3>Consulta de quebra de padrões</h3>
@@ -114,10 +105,10 @@
         <!-- textos tirados do material da Yasnnajára (23/11/2026); a análise de todos é radiestésica -->
         <ul class="carta__lista">
           <li class="servico">
-            <span class="servico__linha"><h3 class="servico__nome">Limpeza de Chakras, Aura e Corpos Sutis</h3><i class="servico__pontos" aria-hidden="true"></i><span class="servico__preco"><small>R$</small>297</span></span>
+            <span class="servico__linha"><h3 class="servico__nome">Harmonização de Chakras, Aura e Corpos Sutis</h3><i class="servico__pontos" aria-hidden="true"></i><span class="servico__preco"><small>R$</small>297</span></span>
             <p class="servico__texto">Uma avaliação energética dos seus principais centros de energia: o que está em harmonia e o que precisa de reequilíbrio.</p>
             <details class="servico__mais"><summary>O que a sessão traz</summary><ul><li>Identifica bloqueios energéticos;</li><li>Orienta sobre aspectos emocionais e comportamentais que precisam de atenção;</li><li>Indica tratamentos vibracionais;</li><li>Reencaminha o fluxo de energia vital.</li></ul><p class="servico__fecho">Um processo de autoconhecimento que traz clareza, equilíbrio e expansão de consciência.</p></details>
-            <a class="servico__agendar" data-servico="a Limpeza de Chakras, Aura e Corpos Sutis">Agendar →</a></li>
+            <a class="servico__agendar" data-servico="a Harmonização de Chakras, Aura e Corpos Sutis">Agendar →</a></li>
           <li class="servico">
             <span class="servico__linha"><h3 class="servico__nome">Divórcio Energético</h3><i class="servico__pontos" aria-hidden="true"></i><span class="servico__preco"><small>R$</small>297</span></span>
             <p class="servico__texto">Para romper os laços sutis que ainda prendem você a pessoas, lugares, objetos, lembranças ou situações que já não fazem parte do seu caminho.</p>
@@ -159,11 +150,12 @@
     </div>
 
     <!-- ---------- PRODUTOS: os arcos ---------- -->
-    <div class="catalogo__painel vitrine" id="produtos" role="tabpanel" aria-labelledby="aba-produtos" hidden>
+    <div class="catalogo__bloco catalogo__bloco--produtos vitrine" id="produtos">
+      <h3 class="catalogo__rotulo"><b>Produtos</b><small>online, para fazer no seu tempo</small></h3>
     <div class="vitrine__trilho" tabindex="0">
 
       <a class="arco" data-link="metodo">
-        <img class="arco__foto" src="assets/porta-metodo.webp?v=202611231700" alt="" width="800" height="1200" loading="lazy">
+        <img class="arco__foto" src="assets/porta-metodo.webp?v=202611231900" alt="" width="800" height="1200" loading="lazy">
         <span class="arco__moldura" aria-hidden="true"></span>
         <span class="card__titulo marca-adesivo marca-adesivo--metodo" aria-label="Método das Deusas"><i aria-hidden="true">✺</i><span>Método das Deusas<small>por Yasnnajára Alves</small></span></span>
         <span class="arco__texto">
@@ -174,7 +166,7 @@
       </a>
 
       <a class="arco" data-link="perfil">
-        <img class="arco__foto" src="assets/porta-perfil.webp?v=202611231700" alt="" width="800" height="1200" loading="lazy">
+        <img class="arco__foto" src="assets/porta-perfil.webp?v=202611231900" alt="" width="800" height="1200" loading="lazy">
         <span class="arco__moldura" aria-hidden="true"></span>
         <span class="card__titulo marca-adesivo marca-adesivo--perfil" aria-label="Perfil de Mercado Lucrativo"><b>Perfil</b><em>de Mercado Lucrativo</em></span>
         <span class="arco__texto">
@@ -185,7 +177,7 @@
       </a>
 
       <a class="arco" data-link="essenza">
-        <img class="arco__foto" src="assets/porta-essenza.webp?v=202611231700" alt="" width="800" height="1200" loading="lazy">
+        <img class="arco__foto" src="assets/porta-essenza.webp?v=202611231900" alt="" width="800" height="1200" loading="lazy">
         <span class="arco__moldura" aria-hidden="true"></span>
         <span class="arco__texto">
           <span class="card__eyebrow">Acompanhamento mensal</span>
@@ -332,10 +324,10 @@
     <a href="#" class="rodape-site__topo">Voltar ao topo ↑</a>
   </div>
 </footer>
-<script src="assets/central.js?v=202611231700"></script>
-<script src="assets/catalogo.js?v=202611231700"></script>
-<script src="assets/vitrine.js?v=202611231700"></script>
-<script src="assets/secoes.js?v=202611231700"></script>
-<script src="assets/anima.js?v=202611231700"></script>
+<script src="assets/central.js?v=202611231900"></script>
+<script src="assets/catalogo.js?v=202611231900"></script>
+<script src="assets/vitrine.js?v=202611231900"></script>
+<script src="assets/secoes.js?v=202611231900"></script>
+<script src="assets/anima.js?v=202611231900"></script>
 </body>
 </html>
