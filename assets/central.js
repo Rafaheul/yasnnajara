@@ -8,14 +8,13 @@ window.CENTRAL = {
 
   metodo:   "https://rafaheul.github.io/metodo-deusas-demo/",
   essenza:  "https://club-energiza.vercel.app/",   // Círculo Essenza (hoje é o formulário de cadastro do Club Energiza)
-  perfil:   "https://perfil-de-mercado.vercel.app/",   // Perfil de Mercado (hoje só entra com código de convite)
+  perfil:   "https://perfil-de-mercado.vercel.app/",   // Perfil de Mercado Lucrativo: página de vendas (aberta em 23/11/2026)
   instagram:"https://instagram.com/yasnnajara_alves",
 
   // Produtos que ainda não abriram para o público. O cartão vira "Em breve" e o clique
   // abre o WhatsApp para a pessoa entrar na lista de espera. Quando abrir, é só tirar o nome daqui.
   listaDeEspera: {
-    essenza: "Olá, Yasnnajára! Vim pelo site e quero entrar na lista de espera do Círculo Essenza.",
-    perfil:  "Olá, Yasnnajára! Vim pelo site e quero entrar na lista de espera do Perfil de Mercado."
+    essenza: "Olá, Yasnnajára! Vim pelo site e quero entrar na lista de espera do Círculo Essenza."
   },
 
   // Depoimentos de clientes (SÓ com autorização dela). Lista vazia = a seção não aparece.
