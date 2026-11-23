@@ -130,9 +130,9 @@
 @media (max-width: 699px) { .arco > .card__titulo.marca-adesivo { top: -14px; left: auto; } }
 /* Método: no alto à direita, lado esquerdo mais alto */
 .arco > .card__titulo.marca-adesivo--metodo, .arco.ativo > .card__titulo.marca-adesivo--metodo { right: -14px; transform: rotate(6deg); }
-/* Perfil: no alto à esquerda, lado direito mais alto */
-.arco > .card__titulo.marca-adesivo--perfil, .arco.ativo > .card__titulo.marca-adesivo--perfil { left: -14px; transform: rotate(-6deg); }
+/* Perfil: no alto à DIREITA também (23/11: à esquerda ele encostava no adesivo do Método), lado direito mais alto */
+.arco > .card__titulo.marca-adesivo--perfil, .arco.ativo > .card__titulo.marca-adesivo--perfil { left: auto; right: -14px; transform: rotate(-5deg); }
 @media (max-width: 699px) {
   .arco > .card__titulo.marca-adesivo--metodo, .arco.ativo > .card__titulo.marca-adesivo--metodo { right: -10px; left: auto; }
-  .arco > .card__titulo.marca-adesivo--perfil, .arco.ativo > .card__titulo.marca-adesivo--perfil { left: -10px; }
+  .arco > .card__titulo.marca-adesivo--perfil, .arco.ativo > .card__titulo.marca-adesivo--perfil { left: auto; right: -10px; }
 }

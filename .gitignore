@@ -12,3 +12,6 @@ assets/*
 !assets/*.jpg
 !assets/logo.png
 !assets/no.mp4
+!links/
+links/*
+!links/index.html
