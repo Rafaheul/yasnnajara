@@ -15,10 +15,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,600;0,6..96,700;1,6..96,500&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@1,6..72,600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/style.css?v=202611231100">
-<link rel="stylesheet" href="assets/central.css?v=202611231100">
-<link rel="stylesheet" href="assets/vitrine.css?v=202611231100">
-<link rel="stylesheet" href="assets/secoes.css?v=202611231100">
+<link rel="stylesheet" href="assets/style.css?v=202611231500">
+<link rel="stylesheet" href="assets/central.css?v=202611231500">
+<link rel="stylesheet" href="assets/vitrine.css?v=202611231500">
+<link rel="stylesheet" href="assets/secoes.css?v=202611231500">
+<link rel="stylesheet" href="assets/catalogo.css?v=202611231500">
 </head>
 <body>
 
@@ -64,53 +65,115 @@
     <span class="selo-preco" aria-label="R$ 297,00"><small>R$</small><i class="selo-preco__estrela" aria-hidden="true"></i><strong class="selo-preco__valor">297<sup>,00</sup></strong></span>
   </a>
   <a class="btn btn-luxo capa__btn cl" data-link="whatsapp"><span class="seta">Marcar a minha consulta →</span></a>
-  <a class="capa__descer cl" href="#portas">ou veja os outros caminhos ↓</a>
+  <a class="capa__descer cl" href="#catalogo">ou veja o catálogo completo ↓</a>
 </section>
 
 <main class="wrap" id="portas">
-  <section class="vitrine" aria-label="Os trabalhos da Yasnnajára">
-    <header class="vitrine__topo">
-      <span class="vitrine__olho">Por onde começar</span>
+  <!-- ============ CATÁLOGO (23/11/2026): serviços (com ela, hora marcada) × produtos (online, no tempo da pessoa) ============ -->
+  <section class="catalogo" id="catalogo" aria-label="Catálogo da Yasnnajára">
+    <header class="vitrine__topo catalogo__topo">
+      <span class="vitrine__olho">Catálogo</span>
       <h2>Escolha o seu caminho</h2>
+      <p class="catalogo__sub">Serviços são feitos por mim, com hora marcada. Produtos você faz online, no seu tempo.</p>
     </header>
 
+    <div class="catalogo__abas" role="tablist" aria-label="Tipo">
+      <span class="catalogo__marcador" aria-hidden="true"></span>
+      <button class="catalogo__aba" type="button" role="tab" id="aba-servicos" aria-controls="servicos" aria-selected="true">
+        <b>Serviços</b><small>com a Yasnnajára</small></button>
+      <button class="catalogo__aba" type="button" role="tab" id="aba-produtos" aria-controls="produtos" aria-selected="false" tabindex="-1">
+        <b>Produtos</b><small>no seu tempo</small></button>
+    </div>
+
+    <!-- ---------- SERVIÇOS: a carta ---------- -->
+    <div class="catalogo__painel" id="servicos" role="tabpanel" aria-labelledby="aba-servicos">
+      <div class="carta">
+        <span class="carta__moldura" aria-hidden="true"></span>
+        <header class="carta__topo">
+          <span class="carta__orna" aria-hidden="true">✦</span>
+          <p class="carta__titulo">Carta de serviços</p>
+          <p class="carta__nota">Atendimento individual · agende pelo WhatsApp</p>
+        </header>
+
+        <!-- serviço em destaque: tem página própria -->
+        <article class="servico-destaque">
+          <img class="servico-destaque__foto" src="assets/porta-consulta.webp?v=202611231500" alt="" width="800" height="1200" loading="lazy">
+          <div class="servico-destaque__texto">
+            <span class="servico-destaque__olho">Online · 1 hora</span>
+            <h3>Consulta de quebra de padrões</h3>
+            <p>Uma hora para achar o padrão que se repete e o primeiro passo para sair dele.</p>
+            <div class="servico-destaque__acoes">
+              <span class="servico__preco servico__preco--grande"><small>R$</small>297<sup>,00</sup></span>
+              <a class="btn btn-luxo servico-destaque__btn" data-servico="a consulta de quebra de padrões"><span class="seta">Agendar →</span></a>
+              <a class="servico-destaque__mais" href="consultas.html">Como funciona</a>
+            </div>
+          </div>
+        </article>
+
+        <p class="carta__secao"><span>Harmonizações</span></p>
+        <!-- [A CONFIRMAR COM ELA] a linha de baixo de cada serviço foi escrita a partir do nome -->
+        <ul class="carta__lista">
+          <li><a class="servico" data-servico="a Harmonização de Chakras, Aura e Corpos Sutis">
+            <span class="servico__linha"><b class="servico__nome">Chakras, Aura e Corpos Sutis</b><i class="servico__pontos" aria-hidden="true"></i><span class="servico__preco"><small>R$</small>297</span></span>
+            <span class="servico__texto">Para quando o cansaço não passa com descanso e a energia parece fora do lugar.</span>
+            <span class="servico__agendar">Agendar →</span></a></li>
+          <li><a class="servico" data-servico="o Divórcio Energético">
+            <span class="servico__linha"><b class="servico__nome">Divórcio Energético</b><i class="servico__pontos" aria-hidden="true"></i><span class="servico__preco"><small>R$</small>297</span></span>
+            <span class="servico__texto">Para encerrar por dentro o vínculo com uma relação que já terminou por fora.</span>
+            <span class="servico__agendar">Agendar →</span></a></li>
+          <li><a class="servico" data-servico="a Harmonização de Relacionamentos">
+            <span class="servico__linha"><b class="servico__nome">Relacionamentos</b><i class="servico__pontos" aria-hidden="true"></i><span class="servico__preco"><small>R$</small>297</span></span>
+            <span class="servico__texto">Para a relação a dois que repete as mesmas brigas e o mesmo desencontro.</span>
+            <span class="servico__agendar">Agendar →</span></a></li>
+          <li><a class="servico" data-servico="a Harmonização Familiar">
+            <span class="servico__linha"><b class="servico__nome">Familiar</b><i class="servico__pontos" aria-hidden="true"></i><span class="servico__preco"><small>R$</small>297</span></span>
+            <span class="servico__texto">Para a família em que os mesmos conflitos voltam, de geração em geração.</span>
+            <span class="servico__agendar">Agendar →</span></a></li>
+          <li><a class="servico" data-servico="a Harmonização Profissional">
+            <span class="servico__linha"><b class="servico__nome">Profissional</b><i class="servico__pontos" aria-hidden="true"></i><span class="servico__preco"><small>R$</small>297</span></span>
+            <span class="servico__texto">Para a carreira ou o negócio que trava sempre no mesmo ponto.</span>
+            <span class="servico__agendar">Agendar →</span></a></li>
+          <li><a class="servico" data-servico="a Harmonização de Ambientes">
+            <span class="servico__linha"><b class="servico__nome">Ambientes</b><i class="servico__pontos" aria-hidden="true"></i><span class="servico__preco"><small>R$</small>297</span></span>
+            <span class="servico__texto">Para a casa ou o espaço de trabalho onde ninguém consegue ficar à vontade.</span>
+            <span class="servico__agendar">Agendar →</span></a></li>
+          <li><a class="servico" data-servico="a Harmonização de Saúde">
+            <span class="servico__linha"><b class="servico__nome">Saúde</b><i class="servico__pontos" aria-hidden="true"></i><span class="servico__preco"><small>R$</small>297</span></span>
+            <span class="servico__texto">Um cuidado complementar para o seu bem-estar. Não substitui o acompanhamento médico.</span>
+            <span class="servico__agendar">Agendar →</span></a></li>
+        </ul>
+        <p class="carta__rodape">Cada serviço tem o valor de R$ 297,00. Dia, horário e forma de pagamento são combinados no WhatsApp.</p>
+      </div>
+    </div>
+
+    <!-- ---------- PRODUTOS: os arcos ---------- -->
+    <div class="catalogo__painel vitrine" id="produtos" role="tabpanel" aria-labelledby="aba-produtos" hidden>
     <div class="vitrine__trilho" tabindex="0">
 
-      <a class="arco arco--destaque" href="consultas.html">
-        <img class="arco__foto" src="assets/porta-consulta.webp?v=202611231100" alt="" width="800" height="1200" loading="lazy">
-        <span class="arco__moldura" aria-hidden="true"></span>
-        <span class="arco__texto">
-          <span class="card__eyebrow">Sessão individual · Online</span>
-          <span class="card__titulo">Consulta de quebra de padrões</span>
-          <span class="card__texto">Uma hora para achar o padrão que se repete e o primeiro passo para sair dele.</span>
-          <span class="arco__rodape"><span class="preco">R$ 297</span><span class="seta">Como funciona →</span></span>
-        </span>
-      </a>
-
       <a class="arco" data-link="metodo">
-        <img class="arco__foto" src="assets/porta-metodo.webp?v=202611231100" alt="" width="800" height="1200" loading="lazy">
+        <img class="arco__foto" src="assets/porta-metodo.webp?v=202611231500" alt="" width="800" height="1200" loading="lazy">
         <span class="arco__moldura" aria-hidden="true"></span>
         <span class="card__titulo marca-adesivo marca-adesivo--metodo" aria-label="Método das Deusas"><i aria-hidden="true">✺</i><span>Método das Deusas<small>por Yasnnajára Alves</small></span></span>
         <span class="arco__texto">
-          <span class="card__eyebrow">Primeiro Mapa das Deusas</span>
+          <span class="card__eyebrow">Online · Primeiro Mapa das Deusas</span>
           <span class="card__texto">Um primeiro olhar: qual deusa está no comando e qual ficou na sombra. A leitura completa vem na consulta.</span>
           <span class="arco__rodape"><span></span><span class="seta">Fazer o meu mapa →</span></span>
         </span>
       </a>
 
       <a class="arco" data-link="perfil">
-        <img class="arco__foto" src="assets/porta-perfil.webp?v=202611231100" alt="" width="800" height="1200" loading="lazy">
+        <img class="arco__foto" src="assets/porta-perfil.webp?v=202611231500" alt="" width="800" height="1200" loading="lazy">
         <span class="arco__moldura" aria-hidden="true"></span>
         <span class="card__titulo marca-adesivo marca-adesivo--perfil" aria-label="Perfil de Mercado Lucrativo"><b>Perfil</b><em>de Mercado Lucrativo</em></span>
         <span class="arco__texto">
-          <span class="card__eyebrow">Transição de carreira</span>
+          <span class="card__eyebrow">Online · Transição de carreira</span>
           <span class="card__texto">Para quem quer mudar de carreira ou empreender, mas ainda não sabe o que oferecer nem para quem.</span>
           <span class="arco__rodape"><span></span><span class="seta">Descobrir o meu →</span></span>
         </span>
       </a>
 
       <a class="arco" data-link="essenza">
-        <img class="arco__foto" src="assets/porta-essenza.webp?v=202611231100" alt="" width="800" height="1200" loading="lazy">
+        <img class="arco__foto" src="assets/porta-essenza.webp?v=202611231500" alt="" width="800" height="1200" loading="lazy">
         <span class="arco__moldura" aria-hidden="true"></span>
         <span class="arco__texto">
           <span class="card__eyebrow">Acompanhamento mensal</span>
@@ -126,6 +189,7 @@
       <button class="vitrine__seta" type="button" data-vai="-1" aria-label="Caminho anterior">←</button>
       <div class="vitrine__pontos" role="tablist"></div>
       <button class="vitrine__seta" type="button" data-vai="1" aria-label="Próximo caminho">→</button>
+    </div>
     </div>
 
     <a class="vitrine__insta" data-link="instagram">
@@ -227,9 +291,13 @@
         <a data-link="instagram" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5.2" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="4.1" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor"/></svg></a>
       </div>
     </div>
-    <nav class="rodape-site__col" aria-label="Caminhos">
-      <p class="rodape-site__titulo">Caminhos</p>
+    <nav class="rodape-site__col" aria-label="Serviços">
+      <p class="rodape-site__titulo">Serviços</p>
       <a href="consultas.html">Consulta de quebra de padrões</a>
+      <a href="#servicos">Harmonizações</a>
+    </nav>
+    <nav class="rodape-site__col" aria-label="Produtos">
+      <p class="rodape-site__titulo">Produtos</p>
       <a data-link="metodo">Primeiro Mapa das Deusas</a>
       <a data-link="perfil">Perfil de Mercado Lucrativo</a>
       <a data-link="essenza">Círculo Essenza <small>em breve</small></a>
@@ -252,9 +320,10 @@
     <a href="#" class="rodape-site__topo">Voltar ao topo ↑</a>
   </div>
 </footer>
-<script src="assets/central.js?v=202611231100"></script>
-<script src="assets/vitrine.js?v=202611231100"></script>
-<script src="assets/secoes.js?v=202611231100"></script>
-<script src="assets/anima.js?v=202611231100"></script>
+<script src="assets/central.js?v=202611231500"></script>
+<script src="assets/catalogo.js?v=202611231500"></script>
+<script src="assets/vitrine.js?v=202611231500"></script>
+<script src="assets/secoes.js?v=202611231500"></script>
+<script src="assets/anima.js?v=202611231500"></script>
 </body>
 </html>
