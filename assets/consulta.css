@@ -82,3 +82,69 @@
 .anima .visto .no-mini path, .anima .base.visto svg *, .anima .c-fim.visto .c-fim__fio path { stroke-dashoffset: 0; }
 .btn .seta, .c-btn .seta, .c-barra__btn .seta { color: var(--papel); font-weight: 600; }
 .retrato figcaption { text-transform: none; letter-spacing: 0; }
+
+/* =====================================================================
+   23/11: página da consulta no padrão novo da página inicial
+   (luz na abertura, selo de preço, retrato em arco, faixa escura com a
+   trança, títulos com ornamento e palavra em itálico dourado)
+   ===================================================================== */
+.c-capa { position: relative; padding-top: 40px; padding-bottom: 20px; }
+.c-capa > *:not(.capa__luz) { position: relative; z-index: 1; }
+.c-capa .capa__luz { top: 6%; height: 70%; }
+.c-titulo { font-size: clamp(2.5rem, 10vw, 3.6rem); margin-bottom: 18px; }
+.c-titulo em { color: #A9843F; }
+.c-sub { font: italic 500 clamp(1.2rem, 4.6vw, 1.4rem)/1.42 "Cormorant Garamond", Georgia, serif; color: var(--tinta); }
+.c-assina { display: inline-flex; margin: 26px auto 6px; color: inherit; text-decoration: none; }
+.c-acoes { margin-top: 18px; }
+.c-btn { min-width: min(100%, 340px); }
+.c-link--seta { display: inline-block; margin-top: 6px; }
+
+/* quem conduz: o mesmo bloco do "Prazer" da página inicial */
+.c-quem { margin-top: 40px; }
+
+/* títulos das seções claras */
+.c-sinais, .c-bases, .c-perguntas { padding: 56px 0 20px; text-align: center; }
+.c-h2 { font: 600 clamp(2.4rem, 9.5vw, 3.2rem)/1.05 "Cormorant Garamond", Georgia, serif; color: var(--tinta); margin: 0 0 28px; letter-spacing: -.01em; }
+.c-h2 em { font-style: italic; font-weight: 500; color: #A9843F; }
+
+/* você se reconhece: lista editorial, sem caixas */
+.c-sinais .sinais { gap: 0; margin: 0 auto; max-width: 560px; text-align: left; }
+.c-sinais .sinais li { background: none; border: 0; border-radius: 0; border-bottom: 1px solid var(--borda); padding: 16px 4px; grid-template-columns: 52px 1fr; }
+.c-sinais .sinais li:first-child { border-top: 1px solid var(--borda); }
+.c-sinais .sinais li span { font: italic 500 1.25rem/1.38 "Cormorant Garamond", Georgia, serif; color: var(--tinta); }
+.c-sinais .no-mini path { stroke: #B8945A; }
+.c-sinais .sinais__fim { max-width: 30em; margin: 28px auto 0; font: 500 1.22rem/1.5 "Cormorant Garamond", Georgia, serif; color: var(--tinta); }
+
+/* faixa escura: mesmas regras do "Como eu trabalho" */
+.pg-consulta .como { margin-top: 50px; }
+
+/* bases: três cartões com ícone em medalhão dourado */
+.c-bases .bases { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; text-align: center; }
+.c-bases .base { position: relative; padding: 30px 22px 26px; border-radius: 18px; background: linear-gradient(180deg, #FFFDF8, #FBF4E6); box-shadow: var(--sombra); }
+.c-bases .base::before { content: ""; position: absolute; left: 24px; right: 24px; top: -1px; height: 2px; background: linear-gradient(90deg, transparent, #B8945A, transparent); }
+.base__icone { display: grid; place-items: center; width: 76px; height: 76px; margin: 0 auto 6px; border-radius: 50%;
+  background: radial-gradient(circle at 30% 25%, #FFFBF0, #F3E6CA); border: 1px solid rgba(184,148,90,.55);
+  box-shadow: 0 0 0 5px rgba(224,200,152,.18), 0 8px 18px rgba(140,107,51,.16); }
+.c-bases .base svg { width: 42px; height: 42px; }
+.c-bases .base h3 { font-size: 1.35rem; }
+
+/* perguntas: linhas finas e "+" num círculo dourado */
+.c-perguntas .faq { gap: 0; max-width: 620px; margin: 0 auto; text-align: left; }
+.c-perguntas .faq details { background: none; border: 0; border-radius: 0; border-bottom: 1px solid var(--borda); padding: 0 4px; }
+.c-perguntas .faq details:first-child { border-top: 1px solid var(--borda); }
+.c-perguntas .faq summary { padding: 20px 48px 20px 0; font: 600 1.28rem/1.3 "Cormorant Garamond", Georgia, serif; }
+.c-perguntas .faq summary::after { width: 30px; height: 30px; right: 2px; display: grid; place-items: center; border-radius: 50%;
+  border: 1px solid rgba(184,148,90,.55); font-size: 1.1rem; color: #A9843F; background: #FFFBF4; }
+.c-perguntas .faq details p { color: var(--tinta-suave); }
+
+/* fechamento: cartão escuro com o nó dourado */
+.pg-consulta .c-fim { position: relative; overflow: hidden; margin: 56px 0 40px; padding: 40px 22px 34px; border-radius: 24px; border: 0;
+  color: #F3E8D6; background: radial-gradient(ellipse 120% 80% at 50% 0%, #4A3520 0%, #2A1E12 55%, #1C140A 100%);
+  box-shadow: 0 24px 50px rgba(42,30,18,.3), inset 0 0 0 1px rgba(224,200,152,.28); }
+.pg-consulta .c-fim::after { content: ""; position: absolute; inset: 9px; border-radius: 17px; border: 1px solid rgba(224,200,152,.22); pointer-events: none; }
+.pg-consulta .c-fim__fio path { stroke: #C9A35A; }
+.c-fim__titulo { font: 600 clamp(1.9rem, 7.5vw, 2.6rem)/1.15 "Cormorant Garamond", Georgia, serif; color: #FFF8EC; margin: 0 0 10px; }
+.c-fim__titulo em { font-style: italic; font-weight: 500; color: #E3C88E; }
+.pg-consulta .c-fim p { color: rgba(243,232,214,.78); }
+.c-fim__volta { position: relative; z-index: 1; display: block; margin-top: 16px; font-size: .9rem; color: #E0C898; text-decoration: none; }
+.c-fim__volta:hover { color: #F4E2B4; }
