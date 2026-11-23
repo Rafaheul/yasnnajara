@@ -112,3 +112,36 @@
 
 /* 100vw conta a barra de rolagem do computador: corta a sobra lateral sem criar outra rolagem */
 html { overflow-x: clip; }
+
+/* =====================================================================
+   23/11 (2ª): cada serviço com os textos dela e um "o que a sessão avalia"
+   que abre ali mesmo. O cartão não é mais um link inteiro: o link é o Agendar.
+   ===================================================================== */
+.carta__lista { align-items: start; }
+.servico { cursor: default; display: flex; flex-direction: column; }
+.servico__nome { margin: 0; }
+.servico__texto { margin-top: 8px; }
+.servico__mais { margin-top: 10px; font-size: .86rem; color: var(--tinta-suave); }
+.servico__mais summary { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; list-style: none;
+  font-family: "Cormorant Garamond", Georgia, serif; font-style: italic; font-weight: 600; font-size: 1.02rem; color: var(--bronze); }
+.servico__mais summary::-webkit-details-marker { display: none; }
+.servico__mais summary::after { content: ""; width: 7px; height: 7px; margin-top: -3px; border: solid currentColor; border-width: 0 1.5px 1.5px 0;
+  transform: rotate(45deg); transition: transform .35s cubic-bezier(.22,1,.36,1), margin .35s; }
+.servico__mais[open] summary::after { transform: rotate(-135deg); margin-top: 3px; }
+.servico__mais summary:focus-visible { outline: 2px solid var(--bronze); outline-offset: 3px; border-radius: 4px; }
+.servico__mais ul { margin: 10px 0 0; padding: 12px 14px 12px 30px; border-left: 2px solid var(--dourado-claro); background: rgba(247,240,228,.7); border-radius: 0 8px 8px 0; }
+.servico__mais li { margin: 3px 0; line-height: 1.5; }
+.servico__mais li::marker { color: var(--dourado); }
+.servico__fecho { margin: 10px 0 0; font: italic 500 1rem/1.45 "Cormorant Garamond", Georgia, serif; color: var(--tinta); }
+.anima .servico__mais[open] ul { animation: abre-mais .5s cubic-bezier(.22,1,.36,1); }
+@keyframes abre-mais { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+
+.servico__agendar { align-self: flex-start; margin-top: 14px; padding: 8px 18px; border: 1px solid rgba(140,107,51,.55); border-radius: 999px;
+  text-decoration: none; background: rgba(255,251,244,.7); cursor: pointer; letter-spacing: .03em; }
+@media (hover: hover) {
+  .servico:hover .servico__agendar { color: #FFFBF4; border-color: transparent; letter-spacing: .03em;
+    background: linear-gradient(120deg, #8C6B33, #C4A266 50%, #8C6B33); box-shadow: 0 6px 14px rgba(140,107,51,.3); }
+}
+.servico__agendar:active { transform: scale(.97); }
+.servico__agendar:focus-visible { outline: 2px solid var(--bronze); outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) { .servico__mais summary::after { transition: none; } }

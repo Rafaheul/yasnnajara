@@ -15,11 +15,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,600;0,6..96,700;1,6..96,500&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@1,6..72,600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/style.css?v=202611231500">
-<link rel="stylesheet" href="assets/central.css?v=202611231500">
-<link rel="stylesheet" href="assets/vitrine.css?v=202611231500">
-<link rel="stylesheet" href="assets/secoes.css?v=202611231500">
-<link rel="stylesheet" href="assets/catalogo.css?v=202611231500">
+<link rel="stylesheet" href="assets/style.css?v=202611231700">
+<link rel="stylesheet" href="assets/central.css?v=202611231700">
+<link rel="stylesheet" href="assets/vitrine.css?v=202611231700">
+<link rel="stylesheet" href="assets/secoes.css?v=202611231700">
+<link rel="stylesheet" href="assets/catalogo.css?v=202611231700">
 </head>
 <body>
 
@@ -97,7 +97,7 @@
 
         <!-- serviço em destaque: tem página própria -->
         <article class="servico-destaque">
-          <img class="servico-destaque__foto" src="assets/porta-consulta.webp?v=202611231500" alt="" width="800" height="1200" loading="lazy">
+          <img class="servico-destaque__foto" src="assets/porta-consulta.webp?v=202611231700" alt="" width="800" height="1200" loading="lazy">
           <div class="servico-destaque__texto">
             <span class="servico-destaque__olho">Online · 1 hora</span>
             <h3>Consulta de quebra de padrões</h3>
@@ -110,39 +110,51 @@
           </div>
         </article>
 
-        <p class="carta__secao"><span>Harmonizações</span></p>
-        <!-- [A CONFIRMAR COM ELA] a linha de baixo de cada serviço foi escrita a partir do nome -->
+        <p class="carta__secao"><span>Tratamentos energéticos</span></p>
+        <!-- textos tirados do material da Yasnnajára (23/11/2026); a análise de todos é radiestésica -->
         <ul class="carta__lista">
-          <li><a class="servico" data-servico="a Harmonização de Chakras, Aura e Corpos Sutis">
-            <span class="servico__linha"><b class="servico__nome">Chakras, Aura e Corpos Sutis</b><i class="servico__pontos" aria-hidden="true"></i><span class="servico__preco"><small>R$</small>297</span></span>
-            <span class="servico__texto">Para quando o cansaço não passa com descanso e a energia parece fora do lugar.</span>
-            <span class="servico__agendar">Agendar →</span></a></li>
-          <li><a class="servico" data-servico="o Divórcio Energético">
-            <span class="servico__linha"><b class="servico__nome">Divórcio Energético</b><i class="servico__pontos" aria-hidden="true"></i><span class="servico__preco"><small>R$</small>297</span></span>
-            <span class="servico__texto">Para encerrar por dentro o vínculo com uma relação que já terminou por fora.</span>
-            <span class="servico__agendar">Agendar →</span></a></li>
-          <li><a class="servico" data-servico="a Harmonização de Relacionamentos">
-            <span class="servico__linha"><b class="servico__nome">Relacionamentos</b><i class="servico__pontos" aria-hidden="true"></i><span class="servico__preco"><small>R$</small>297</span></span>
-            <span class="servico__texto">Para a relação a dois que repete as mesmas brigas e o mesmo desencontro.</span>
-            <span class="servico__agendar">Agendar →</span></a></li>
-          <li><a class="servico" data-servico="a Harmonização Familiar">
-            <span class="servico__linha"><b class="servico__nome">Familiar</b><i class="servico__pontos" aria-hidden="true"></i><span class="servico__preco"><small>R$</small>297</span></span>
-            <span class="servico__texto">Para a família em que os mesmos conflitos voltam, de geração em geração.</span>
-            <span class="servico__agendar">Agendar →</span></a></li>
-          <li><a class="servico" data-servico="a Harmonização Profissional">
-            <span class="servico__linha"><b class="servico__nome">Profissional</b><i class="servico__pontos" aria-hidden="true"></i><span class="servico__preco"><small>R$</small>297</span></span>
-            <span class="servico__texto">Para a carreira ou o negócio que trava sempre no mesmo ponto.</span>
-            <span class="servico__agendar">Agendar →</span></a></li>
-          <li><a class="servico" data-servico="a Harmonização de Ambientes">
-            <span class="servico__linha"><b class="servico__nome">Ambientes</b><i class="servico__pontos" aria-hidden="true"></i><span class="servico__preco"><small>R$</small>297</span></span>
-            <span class="servico__texto">Para a casa ou o espaço de trabalho onde ninguém consegue ficar à vontade.</span>
-            <span class="servico__agendar">Agendar →</span></a></li>
-          <li><a class="servico" data-servico="a Harmonização de Saúde">
-            <span class="servico__linha"><b class="servico__nome">Saúde</b><i class="servico__pontos" aria-hidden="true"></i><span class="servico__preco"><small>R$</small>297</span></span>
-            <span class="servico__texto">Um cuidado complementar para o seu bem-estar. Não substitui o acompanhamento médico.</span>
-            <span class="servico__agendar">Agendar →</span></a></li>
+          <li class="servico">
+            <span class="servico__linha"><h3 class="servico__nome">Limpeza de Chakras, Aura e Corpos Sutis</h3><i class="servico__pontos" aria-hidden="true"></i><span class="servico__preco"><small>R$</small>297</span></span>
+            <p class="servico__texto">Uma avaliação energética dos seus principais centros de energia: o que está em harmonia e o que precisa de reequilíbrio.</p>
+            <details class="servico__mais"><summary>O que a sessão traz</summary><ul><li>Identifica bloqueios energéticos;</li><li>Orienta sobre aspectos emocionais e comportamentais que precisam de atenção;</li><li>Indica tratamentos vibracionais;</li><li>Reencaminha o fluxo de energia vital.</li></ul><p class="servico__fecho">Um processo de autoconhecimento que traz clareza, equilíbrio e expansão de consciência.</p></details>
+            <a class="servico__agendar" data-servico="a Limpeza de Chakras, Aura e Corpos Sutis">Agendar →</a></li>
+          <li class="servico">
+            <span class="servico__linha"><h3 class="servico__nome">Divórcio Energético</h3><i class="servico__pontos" aria-hidden="true"></i><span class="servico__preco"><small>R$</small>297</span></span>
+            <p class="servico__texto">Para romper os laços sutis que ainda prendem você a pessoas, lugares, objetos, lembranças ou situações que já não fazem parte do seu caminho.</p>
+            <details class="servico__mais"><summary>O que a sessão avalia</summary><ul><li>Quais vínculos sutis ainda estão ativos;</li><li>Onde há acúmulo ou drenagem de energia;</li><li>Que cordões vibracionais (emocionais, mentais ou espirituais) ainda ligam você àquela experiência.</li></ul><p class="servico__fecho">Depois, é feito o rompimento amoroso e seguro dessas conexões, com limpeza e harmonização dos chakras e corpos sutis.</p></details>
+            <a class="servico__agendar" data-servico="o Divórcio Energético">Agendar →</a></li>
+          <li class="servico">
+            <span class="servico__linha"><h3 class="servico__nome">Harmonização de Relacionamentos</h3><i class="servico__pontos" aria-hidden="true"></i><span class="servico__preco"><small>R$</small>297</span></span>
+            <p class="servico__texto">Para devolver compreensão, respeito e fluidez à relação entre duas ou mais pessoas. Não é fazer alguém mudar: é limpar o que atrapalha a convivência.</p>
+            <details class="servico__mais"><summary>O que a sessão avalia</summary><ul><li>Bloqueios que dificultam a comunicação;</li><li>Padrões repetidos de conflito, mágoa ou ressentimento;</li><li>Desequilíbrios nos chakras ligados à expressão, ao amor, ao poder pessoal e à segurança;</li><li>Influências externas (ambientes, memórias ou energias coletivas) que afetam o vínculo.</li></ul></details>
+            <a class="servico__agendar" data-servico="a Harmonização de Relacionamentos">Agendar →</a></li>
+          <li class="servico">
+            <span class="servico__linha"><h3 class="servico__nome">Harmonização Familiar</h3><i class="servico__pontos" aria-hidden="true"></i><span class="servico__preco"><small>R$</small>297</span></span>
+            <p class="servico__texto">Para devolver harmonia, respeito e fluidez à convivência da família, qualquer que seja a composição ou a idade de cada um.</p>
+            <details class="servico__mais"><summary>O que a sessão avalia</summary><ul><li>Padrões que geram conflitos ou atritos;</li><li>Emoções reprimidas ou não ditas que pesam no clima da casa;</li><li>Desalinhamentos nos chakras ligados à convivência, à comunicação e à empatia;</li><li>Interferências externas (ambiente, desgaste emocional, histórico familiar).</li></ul></details>
+            <a class="servico__agendar" data-servico="a Harmonização Familiar">Agendar →</a></li>
+          <li class="servico">
+            <span class="servico__linha"><h3 class="servico__nome">Harmonização Profissional</h3><i class="servico__pontos" aria-hidden="true"></i><span class="servico__preco"><small>R$</small>297</span></span>
+            <p class="servico__texto">Para realinhar a sua energia com o seu propósito e o seu trabalho, com mais clareza, foco e prosperidade na carreira.</p>
+            <details class="servico__mais"><summary>O que a sessão avalia</summary><ul><li>Bloqueios ligados à profissão, à prosperidade e ao propósito;</li><li>Crenças limitantes sobre merecimento, sucesso ou dinheiro;</li><li>Interferências de ambientes de trabalho densos ou competitivos;</li><li>Desalinhamento entre a sua vocação e o trabalho que você faz hoje.</li></ul></details>
+            <a class="servico__agendar" data-servico="a Harmonização Profissional">Agendar →</a></li>
+          <li class="servico">
+            <span class="servico__linha"><h3 class="servico__nome">Materialização de Objetivos</h3><i class="servico__pontos" aria-hidden="true"></i><span class="servico__preco"><small>R$</small>297</span></span>
+            <p class="servico__texto">Para alinhar a sua energia com aquilo que você quer realizar e transformar intenção em resultado concreto.</p>
+            <details class="servico__mais"><summary>O que a sessão avalia</summary><ul><li>A energia ligada ao objetivo que você deseja;</li><li>Bloqueios inconscientes que sabotam a realização;</li><li>Desalinhamentos entre o propósito, a emoção e o foco;</li><li>Sinais de escassez, medo ou dúvida que enfraquecem a criação.</li></ul></details>
+            <a class="servico__agendar" data-servico="a Materialização de Objetivos">Agendar →</a></li>
+          <li class="servico">
+            <span class="servico__linha"><h3 class="servico__nome">Harmonização de Ambientes</h3><i class="servico__pontos" aria-hidden="true"></i><span class="servico__preco"><small>R$</small>297</span></span>
+            <p class="servico__texto">Para devolver equilíbrio e vitalidade à casa ou ao espaço de trabalho, com mais bem-estar, leveza e fluidez no que acontece ali.</p>
+            <details class="servico__mais"><summary>O que a análise avalia</summary><ul><li>Pontos de baixa vibração ou acúmulo de energia;</li><li>Interferências geopáticas (redes telúricas, água subterrânea, campos eletromagnéticos);</li><li>Memórias ligadas a acontecimentos passados;</li><li>Desarmonia entre os elementos energéticos e emocionais do espaço.</li></ul></details>
+            <a class="servico__agendar" data-servico="a Harmonização de Ambientes">Agendar →</a></li>
+          <li class="servico">
+            <span class="servico__linha"><h3 class="servico__nome">Harmonização de Saúde</h3><i class="servico__pontos" aria-hidden="true"></i><span class="servico__preco"><small>R$</small>297</span></span>
+            <p class="servico__texto">Um cuidado energético complementar para quando o estresse, as emoções guardadas e a sobrecarga mental começam a pesar no corpo.</p>
+            <details class="servico__mais"><summary>O que a sessão avalia</summary><ul><li>Desalinhamentos nos chakras;</li><li>Bloqueios que reduzem a circulação da energia vital;</li><li>Pontos de estagnação energética;</li><li>Interferências sutis que enfraquecem a vitalidade.</li></ul><p class="servico__fecho">É um cuidado complementar: não substitui o acompanhamento médico.</p></details>
+            <a class="servico__agendar" data-servico="a Harmonização de Saúde">Agendar →</a></li>
         </ul>
-        <p class="carta__rodape">Cada serviço tem o valor de R$ 297,00. Dia, horário e forma de pagamento são combinados no WhatsApp.</p>
+        <p class="carta__rodape">Cada serviço tem o valor de R$ 297,00. Todos partem de uma análise radiestésica. Dia, horário e forma de pagamento são combinados no WhatsApp.</p>
       </div>
     </div>
 
@@ -151,7 +163,7 @@
     <div class="vitrine__trilho" tabindex="0">
 
       <a class="arco" data-link="metodo">
-        <img class="arco__foto" src="assets/porta-metodo.webp?v=202611231500" alt="" width="800" height="1200" loading="lazy">
+        <img class="arco__foto" src="assets/porta-metodo.webp?v=202611231700" alt="" width="800" height="1200" loading="lazy">
         <span class="arco__moldura" aria-hidden="true"></span>
         <span class="card__titulo marca-adesivo marca-adesivo--metodo" aria-label="Método das Deusas"><i aria-hidden="true">✺</i><span>Método das Deusas<small>por Yasnnajára Alves</small></span></span>
         <span class="arco__texto">
@@ -162,7 +174,7 @@
       </a>
 
       <a class="arco" data-link="perfil">
-        <img class="arco__foto" src="assets/porta-perfil.webp?v=202611231500" alt="" width="800" height="1200" loading="lazy">
+        <img class="arco__foto" src="assets/porta-perfil.webp?v=202611231700" alt="" width="800" height="1200" loading="lazy">
         <span class="arco__moldura" aria-hidden="true"></span>
         <span class="card__titulo marca-adesivo marca-adesivo--perfil" aria-label="Perfil de Mercado Lucrativo"><b>Perfil</b><em>de Mercado Lucrativo</em></span>
         <span class="arco__texto">
@@ -173,7 +185,7 @@
       </a>
 
       <a class="arco" data-link="essenza">
-        <img class="arco__foto" src="assets/porta-essenza.webp?v=202611231500" alt="" width="800" height="1200" loading="lazy">
+        <img class="arco__foto" src="assets/porta-essenza.webp?v=202611231700" alt="" width="800" height="1200" loading="lazy">
         <span class="arco__moldura" aria-hidden="true"></span>
         <span class="arco__texto">
           <span class="card__eyebrow">Acompanhamento mensal</span>
@@ -294,7 +306,7 @@
     <nav class="rodape-site__col" aria-label="Serviços">
       <p class="rodape-site__titulo">Serviços</p>
       <a href="consultas.html">Consulta de quebra de padrões</a>
-      <a href="#servicos">Harmonizações</a>
+      <a href="#servicos">Tratamentos energéticos</a>
     </nav>
     <nav class="rodape-site__col" aria-label="Produtos">
       <p class="rodape-site__titulo">Produtos</p>
@@ -320,10 +332,10 @@
     <a href="#" class="rodape-site__topo">Voltar ao topo ↑</a>
   </div>
 </footer>
-<script src="assets/central.js?v=202611231500"></script>
-<script src="assets/catalogo.js?v=202611231500"></script>
-<script src="assets/vitrine.js?v=202611231500"></script>
-<script src="assets/secoes.js?v=202611231500"></script>
-<script src="assets/anima.js?v=202611231500"></script>
+<script src="assets/central.js?v=202611231700"></script>
+<script src="assets/catalogo.js?v=202611231700"></script>
+<script src="assets/vitrine.js?v=202611231700"></script>
+<script src="assets/secoes.js?v=202611231700"></script>
+<script src="assets/anima.js?v=202611231700"></script>
 </body>
 </html>
