@@ -50,14 +50,25 @@ a { color: inherit; text-decoration: none; }
 
 /* ---------- topo: retrato em arco + nome ---------- */
 .topo { text-align: center; }
-.retrato { position: relative; width: 124px; margin: 6px auto 0; }
-.retrato__arco { width: 124px; height: 152px; border-radius: 66px 66px 14px 14px / 60px 60px 14px 14px; overflow: hidden;
-  box-shadow: 0 0 0 4px var(--papel), 0 0 0 5px rgba(184,148,90,.6), 0 18px 40px rgba(59,46,32,.25); }
-.retrato__arco img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 18%; display: block; }
-.retrato__selo { position: absolute; right: -14px; bottom: -6px; width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center;
-  background: var(--papel); box-shadow: 0 0 0 1px rgba(184,148,90,.55), 0 6px 14px rgba(59,46,32,.2); }
-.retrato__selo img { width: 30px; height: 30px; object-fit: contain; }
-.nome { margin: 18px 0 0; line-height: 1; }
+.retrato { position: relative; width: 210px; height: 232px; margin: 0 auto; }
+/* disco dourado atrás; ela "sai" por cima da borda */
+.retrato__disco { position: absolute; left: 50%; bottom: 0; width: 186px; height: 186px; margin-left: -93px; border-radius: 50%;
+  background: radial-gradient(circle at 50% 30%, #FFF7E6 0%, #F1E0BC 48%, #D9BE89 100%);
+  box-shadow: 0 0 0 4px var(--papel), 0 0 0 5px rgba(184,148,90,.65), 0 20px 44px rgba(59,46,32,.24); }
+.retrato__disco::after { content: ""; position: absolute; inset: 9px; border-radius: 50%; border: 1px solid rgba(255,250,238,.7); }
+/* a foto aparece dentro do círculo + uma faixa no alto, só onde está a cabeça */
+.retrato__foto { position: absolute; inset: 0;
+  -webkit-mask-image: radial-gradient(circle 93px at 50% calc(100% - 93px), #000 98.5%, transparent 100%), linear-gradient(#000, #000);
+  -webkit-mask-size: 100% 100%, 112px 62%; -webkit-mask-position: 0 0, 50% 0; -webkit-mask-repeat: no-repeat;
+  mask-image: radial-gradient(circle 93px at 50% calc(100% - 93px), #000 98.5%, transparent 100%), linear-gradient(#000, #000);
+  mask-size: 100% 100%, 112px 62%; mask-position: 0 0, 50% 0; mask-repeat: no-repeat; }
+.retrato__foto img { position: absolute; left: 50%; bottom: 0; width: 216px; height: auto; margin-left: -108px; display: block;
+  filter: drop-shadow(0 6px 10px rgba(59,46,32,.18)); }
+/* logo da marca, centralizado embaixo */
+.retrato__selo { position: absolute; left: 50%; bottom: -22px; width: 50px; height: 50px; margin-left: -25px; border-radius: 50%; display: grid; place-items: center; z-index: 2;
+  background: var(--papel); box-shadow: 0 0 0 1px rgba(184,148,90,.6), 0 6px 14px rgba(59,46,32,.2); }
+.retrato__selo img { width: 34px; height: 34px; object-fit: contain; }
+.nome { margin: 34px 0 0; line-height: 1; }
 .nome em { display: block; font: italic 600 2.5rem/1 "Bodoni Moda", Didot, Georgia, serif; font-variation-settings: "opsz" 28; letter-spacing: -.01em;
   background: linear-gradient(100deg, #6A4E1D, #A98244 45%, #6A4E1D); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .nome small { display: block; margin-top: 6px; font: 600 .74rem/1 Inter, sans-serif; letter-spacing: .5em; text-indent: .5em; text-transform: uppercase; color: var(--bronze); }
@@ -101,7 +112,7 @@ a { color: inherit; text-decoration: none; }
 .cam__foto--livros img:nth-child(2) { transform: translateX(13px) rotate(14deg); }
 .cam__foto--livros img:nth-child(3) { transform: translateY(-3px); z-index: 2; }
 
-.cam__selo { display: inline-block; margin-left: 6px; padding: 2px 7px 3px; border-radius: 99px; vertical-align: 2px;
+.cam__selo { position: absolute; top: 10px; right: 12px; padding: 3px 8px; border-radius: 99px; box-shadow: 0 2px 6px rgba(140,107,51,.25);
   font: 600 .56rem/1.2 Inter, sans-serif; letter-spacing: .14em; text-transform: uppercase; color: #3B2E20; background: #E9D3A0; }
 
 /* destaque escuro: a consulta */
@@ -140,8 +151,12 @@ a { color: inherit; text-decoration: none; }
 /* ---------- entrada ---------- */
 .anima .sobe { opacity: 0; transform: translateY(18px); animation: sobe .8s var(--mola) forwards; animation-delay: calc(var(--i, 0) * 80ms + 120ms); }
 @keyframes sobe { to { opacity: 1; transform: none; } }
-.anima .retrato__arco { animation: revela 1.1s var(--mola) both; }
-@keyframes revela { from { clip-path: inset(100% 0 0 0 round 66px 66px 14px 14px); } to { clip-path: inset(0 0 0 0 round 0); } }
+.anima .retrato__disco { animation: disco 1s var(--mola) both; }
+@keyframes disco { from { transform: scale(.6); opacity: 0; } to { transform: none; opacity: 1; } }
+.anima .retrato__foto img { animation: ergue 1.1s var(--mola) .25s both; }
+@keyframes ergue { from { transform: translateY(40px); opacity: 0; } to { transform: none; opacity: 1; } }
+.anima .retrato__selo { animation: selo .8s cubic-bezier(.34,1.56,.64,1) .9s both; }
+@keyframes selo { from { transform: scale(0) rotate(-90deg); } to { transform: none; } }
 @media (prefers-reduced-motion: reduce) {
   .luz span, .cam--destaque::before { animation: none; }
   .cam, .cam__seta { transition: none; }
@@ -155,8 +170,9 @@ a { color: inherit; text-decoration: none; }
 <main class="pagina">
   <header class="topo">
     <div class="retrato sobe" style="--i:0">
-      <div class="retrato__arco"><img src="../assets/yasnnajara-terno.webp" alt="Yasnnajára Alves" width="800" height="1000"></div>
-      <span class="retrato__selo"><img src="../assets/logo.png" alt="" width="30" height="30"></span>
+      <span class="retrato__disco" aria-hidden="true"></span>
+      <div class="retrato__foto"><img src="../assets/yasnnajara-recorte.webp" alt="Yasnnajára Alves" width="560" height="619"></div>
+      <span class="retrato__selo"><img src="../assets/logo.png" alt="" width="34" height="34"></span>
     </div>
     <h1 class="nome sobe" style="--i:1"><em>Yasnnajára</em><small>Alves</small></h1>
     <p class="tag sobe" style="--i:2">Desenvolvimento humano · Quebra de padrões</p>
@@ -182,7 +198,7 @@ a { color: inherit; text-decoration: none; }
       <a class="cam" href="../index.html#servicos">
         <span class="cam__foto cam__foto--desenho"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 6 V34"/><path d="M32 34 C25 40 25 48 32 58 C39 48 39 40 32 34 Z"/><path d="M14 52 C22 60 42 60 50 52" stroke-dasharray="2 5"/><circle cx="32" cy="6" r="2.5"/></svg></span>
         <span>
-          <span class="cam__olho">Serviços · R$ 297 cada</span>
+          <span class="cam__olho">Serviços</span>
           <span class="cam__titulo">Tratamentos energéticos</span>
           <span class="cam__texto">Chakras, relações, família, carreira, ambientes e mais.</span>
         </span>
@@ -193,7 +209,7 @@ a { color: inherit; text-decoration: none; }
       <a class="cam" data-link="metodo">
         <span class="cam__foto"><img src="../assets/porta-metodo.webp" alt="" width="800" height="1200" loading="lazy"></span>
         <span>
-          <span class="cam__olho">Método das Deusas</span>
+          <span class="cam__olho">Método das Deusas<span class="cam__selo">Comece grátis</span></span>
           <span class="cam__titulo">Primeiro Mapa das Deusas</span>
           <span class="cam__texto">Qual deusa está no comando e qual ficou na sombra.</span>
         </span>
